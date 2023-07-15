@@ -1,0 +1,84 @@
+<%- include('./partials/head.ejs') %>
+
+<main>
+
+
+<% const today = new Date() %>
+<h2>Astronomy Picture Of The Day</h2>
+
+
+<!-- hulp van chatgpt: De toISOString()-methode wordt 
+    gebruikt om de huidige datum om te zetten naar een ISO 8601-datumnotatie 
+    die wordt verwacht door het max-attribuut van het datumveld. De split('T')[0] 
+    wordt gebruikt om alleen de datum te extraheren zonder het tijdstempelgedeelte. -->
+<form action="/day.ejs" method="get">
+    <label for="day">
+    <input type="date" 
+    id="day" 
+    name="day"
+    value="<%= apodData.date %>"
+       min="2015-01-01" 
+       max="<%= today.toISOString().split('T')[0] %>">
+    </label>
+    <input type="submit" value="CHOOSE DAY 🚀">
+  </form>
+
+<h3><%- apodData.title %></h3>
+
+<div class="image-container">
+    <img src="<%- apodData.url %>" alt="Astronomy Picture" width="100%">
+    <% if(apodData.copyright){ %>
+        <p class="copyright">&#169; <%= apodData.copyright %></p>
+    <% } %>
+    
+</div>
+
+<section class="explanation">
+    <h4>Explanation:</h4>
+    <p><%= apodData.explanation %></p>
+</section>
+
+<section class="comments">
+    <h4>Comments:</h4>
+
+    <section class="column-reverse">
+    <% messages.forEach(message => { %>
+        <% const dateStr = message.Date; %>
+        <% const parsedDate = new Date(dateStr); %>
+        <% const year = parsedDate.getFullYear(); %>
+        <% const month = String(parsedDate.getMonth() + 1).padStart(2, "0"); %>
+        <% const day = String(parsedDate.getDate()).padStart(2, "0"); %>
+        <% const formattedDates = `${year}-${month}-${day}`; %>
+
+        
+        <% if(apodData.date === formattedDates) { %>
+            <section class="messages">
+                <h6><%- message.Name %>: <span><%- message.Today %></span></h6>
+                <p><%- message.Message %></p>
+            </section>
+        <% } %>   
+    <% }); %>
+    </section>
+    <!-- probeersel om te checken of er meer dan 3 berichten zijn, zo ja = button -->
+            
+    <button class="more-messages">READ MORE MESSAGES 🌠</button>
+
+    <h4 class="add-message">Add your message:</h4>
+    <form action="/day.ejs?day=<%= apodData.date %>" method="post">
+        <fieldset class="post-form">
+            <label for="Name">Name:
+            <input name="Name" id="Name" type="text" required>
+            </label>
+
+            <label for="Message">Message:
+            <input name="Message" id="Message" type="text" required>
+            </label>
+
+            <input type="submit" value="SEND 🛰️">
+
+        </fieldset>
+    </form>
+</section>
+
+</main>
+<%- include('./partials/foot.ejs') %>
