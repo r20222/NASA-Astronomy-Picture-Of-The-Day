@@ -106,13 +106,13 @@ app.post('/', (req, res) => {
   postJson(urlRetoolApi, req.body, req.body.Date, req.body.Today).then((data) => {
 
 
-    console.log(data.id)
+    // console.log(data.id)
     if (data.id) {
       
       res.redirect(`/day.ejs?day=${chosenDay}`) 
-      console.log('succes')
+      // console.log('succes')
     } else {
-      console.log('geen succes')
+      // console.log('geen succes')
       res.render('new')
     }
   })
@@ -135,9 +135,6 @@ return await fetch(url)
     .then((response) => response.json())
     .catch((error) => error)
 }
-
-
-
 
 // om te kunnen posten heb je de postjson functie nodig
 
