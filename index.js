@@ -2,6 +2,10 @@
 // importeer express om het te kunnen gebruiken
 import express from 'express'
 
+// om fetch te gebruiken voor online zetten
+import fetch from 'node-fetch';
+
+
 // importeer moment om data makkelijk om te kunnen zetten
 // import moment from 'moment';
 
