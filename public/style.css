@@ -30,6 +30,7 @@ input{
     font-family: 'Space Grotesk', sans-serif;
     background-color: #fcf6bd;
     height:2rem;
+    color: black;
 }
 input:nth-of-type(1){
     margin-right:1rem;
