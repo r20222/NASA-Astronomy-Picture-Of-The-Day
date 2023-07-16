@@ -115,10 +115,14 @@ app.post('/', (req, res) => {
 })
 
 // Stel het poortnummer in en start express
-app.set('port', process.env.PORT || 8000)
-app.listen(app.get('port'), function () {
-  console.log(`Application started on http://localhost:${app.get('port')}`)
-})
+// app.set('port', process.env.PORT || 8000)
+const PORT = process.env.PORT || 8000;
+// app.listen(app.get('port'), function () {
+//   console.log(`Application started on http://localhost:${app.get('port')}`)
+// })
+app.listen(PORT, () => {
+  console.log("listening on http://localhost:" + PORT);
+});
 
 
 // definieer de fetchJson functie
