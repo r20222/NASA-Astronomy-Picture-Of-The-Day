@@ -24,11 +24,21 @@
   <h3><%- apodData.title %></h3>
 
   <div class="image-container">
-    <img src="<%- apodData.url %>" alt="Astronomy Picture" width="100%">
+    <button popovertarget="image-popover">
+        <img src="<%- apodData.url %>" alt="Astronomy Picture" width="100%">
+    </button>
+
+    <div class="img-popover-container" id="image-popover" popover>
+        <button class="popover-close" popovertarget="image-popover" popovertargetaction="hide">
+            <span>Close &#10006;</span>
+        </button>
+        <img src="<%- apodData.hdurl %>" alt="Astronomy Picture">
+    </div>
+
     <% if(apodData.copyright){ %>
-      <p class="copyright">&#169; <%= apodData.copyright %></p>
+        <p class="copyright">&#169; <%= apodData.copyright %></p>
     <% } %>
-  </div>
+</div>
 
   <section class="explanation">
     <h4>Explanation:</h4>

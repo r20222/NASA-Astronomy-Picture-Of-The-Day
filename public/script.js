@@ -28,3 +28,22 @@ moreMessagesButton.addEventListener('click', () => {
 if(messages.length === 0){
     noMessages.innerHTML = "No comments yet, be the first to leave a comment! 🛸"
 } 
+
+
+// popover 
+elementSupportsAttribute("popover")
+
+function elementSupportsAttribute(attribute) {
+  var popover = document.querySelectorAll('#image-popover');
+
+  popover.forEach(popover => {
+    if (attribute in popover) {
+      console.log(true);
+  
+    } else {
+      console.log(false);
+   popover.classList.add('popover-not-working')
+    }
+  })
+  
+};
