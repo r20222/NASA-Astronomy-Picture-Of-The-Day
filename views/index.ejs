@@ -1,73 +1,86 @@
 <%- include('./partials/head.ejs') %>
 
 <main>
-<h2>Astronomy Picture Of The Day</h2>
+
+<section class="left-desktop">
+  <h2>Astronomy Picture Of The Day</h2>
 
 
-<!-- hulp van chatgpt: De toISOString()-methode wordt 
-    gebruikt om de huidige datum om te zetten naar een ISO 8601-datumnotatie 
-    die wordt verwacht door het max-attribuut van het datumveld. De split('T')[0] 
-    wordt gebruikt om alleen de datum te extraheren zonder het tijdstempelgedeelte. -->
-<form action="/day.ejs" method="get">
-    <label for="day"></label>
-    <input type="date" 
-    id="day" 
-    name="day"
-    value="<%= apodData.date %>"
-       min="2015-01-01" 
-       max="<%= apodData.date %>">
-    <input type="submit" value="CHOOSE DAY 🚀">
-  </form>
+  <!-- hulp van chatgpt: De toISOString()-methode wordt 
+      gebruikt om de huidige datum om te zetten naar een ISO 8601-datumnotatie 
+      die wordt verwacht door het max-attribuut van het datumveld. De split('T')[0] 
+      wordt gebruikt om alleen de datum te extraheren zonder het tijdstempelgedeelte. -->
+  <form action="/day.ejs" method="get">
+      <label class="day-picker" for="day">Pick a day:</label>
+      <input type="date" 
+      id="day" 
+      name="day"
+      value="<%= apodData.date %>"
+        min="2015-01-01" 
+        max="<%= apodData.date %>">
+      <input type="submit" value="CHOOSE DAY 🚀">
+    </form>
 
-<h3><%- apodData.title %></h3>
+  <h3><%- apodData.title %></h3>
 
-<div class="image-container">
-  <img src="<%- apodData.url %>" alt="Astronomy Picture" width="100%">
-  <% if(apodData.copyright){ %>
-    <p class="copyright">&#169; <%= apodData.copyright %></p>
-  <% } %>
-</div>
+  <div class="image-container">
+    <img src="<%- apodData.url %>" alt="Astronomy Picture" width="100%">
+    <% if(apodData.copyright){ %>
+      <p class="copyright">&#169; <%= apodData.copyright %></p>
+    <% } %>
+  </div>
 
-<section class="explanation">
-  <h4>Explanation:</h4>
-  <p><%= apodData.explanation %></p>
+  <section class="explanation">
+    <h4>Explanation:</h4>
+    <p><%= apodData.explanation %></p>
+  </section>
 </section>
 
-<section class="comments">
-  <h5>Comments:</h5>
+<!-- right part desktop -->
 
-  <% messages.forEach(message => { %>
-    <% const dateStr = message.Date; %>
-    <% const parsedDate = new Date(dateStr); %>
-    <% const year = parsedDate.getFullYear(); %>
-    <% const month = String(parsedDate.getMonth() + 1).padStart(2, "0"); %>
-    <% const day = String(parsedDate.getDate()).padStart(2, "0"); %>
-    <% const formattedDates = `${year}-${month}-${day}`; %>
+<section class="right-desktop">
+  <section class="comments">
+    <section class="desktop-comments-container">
+      <h4>Comments:</h4>
+      <p class="no-messages-yet"></p>
+      <% messages.forEach(message => { %>
+        <% const dateStr = message.Date; %>
+        <% const parsedDate = new Date(dateStr); %>
+        <% const year = parsedDate.getFullYear(); %>
+        <% const month = String(parsedDate.getMonth() + 1).padStart(2, "0"); %>
+        <% const day = String(parsedDate.getDate()).padStart(2, "0"); %>
+        <% const formattedDates = `${year}-${month}-${day}`; %>
 
 
-    <% if(apodData.date === formattedDates) { %>
-        <section class="messages">
-            <h6><%- message.Name %><span><%- message.Today %></span></h6>
-            <p><%- message.Message %></p>
-        </section>
-    <% } %> 
-  <% }); %>
+        <% if(apodData.date === formattedDates) { %>
+            <section class="messages">
+                <h5><%- message.Name %><span><%- message.Today %></span></h5>
+                <p><%- message.Message %></p>
+            </section>
+        <% } %> 
+      <% }); %>
 
-  <h6>Add your message:</h6>
-  <form action="/day.ejs?day=<%= apodData.date %>" method="post">
-      <fieldset class="post-form">
-          <label for="Name">Name:
-          <input name="Name" id="Name" type="text" required>
-          </label>
+      <button class="more-messages">READ ALL MESSAGES 🌠</button>
+    </section>
 
-          <label for="Message">Message:
-          <input name="Message" id="Message" type="text" required>
-          </label>
+    <section class="form-message-container">
+      <h4>Add your comment:</h4>
+      <form action="/day.ejs?day=<%= apodData.date %>" method="post">
+          <fieldset class="post-form">
+              <label for="Name">Name:
+              <input name="Name" id="Name" type="text" required>
+              </label>
 
-          <input type="submit" value="SEND 🛰️">
+              <label for="Message">Message:
+              <input name="Message" id="Message" type="text" required>
+              </label>
 
-      </fieldset>
-  </form>
+              <input type="submit" value="SEND 🛰️">
+
+          </fieldset>
+      </form>
+    </section>
+  </section>
 </section>
 </main>
 
