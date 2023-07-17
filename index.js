@@ -31,8 +31,9 @@ app.use(express.urlencoded({ extended: true }))
 app.get('/', (request, response) => {
     // haal aangegeven dag op
     
-    // const messagesUrl = `https://retoolapi.dev/OH51H5/data`
-    const messagesUrl = `https://retoolapi.dev/kaI0zp/data`
+    // const messagesUrl = `https://retoolapi.dev/OH51H5/data` oude api
+    // const messagesUrl = `https://retoolapi.dev/kaI0zp/data` oude api
+    const messagesUrl = `https://retoolapi.dev/6VuvDE/data`
     const apodUrl = `https://api.nasa.gov/planetary/apod?api_key=${process.env.APOD}`
 
     
@@ -48,7 +49,7 @@ app.get('/day.ejs', (request, response) => {
   // haal aangegeven dag op
   const chosenDay = request.query.day
 
-  const messagesUrl = `https://retoolapi.dev/kaI0zp/data`
+  const messagesUrl = `https://retoolapi.dev/6VuvDE/data`
   const apodUrl = `https://api.nasa.gov/planetary/apod?api_key=${process.env.APOD}&date=${chosenDay}`
 
 // met promise.all kan je meerdere api's fetchen.
@@ -65,7 +66,7 @@ app.get('/day.ejs', (request, response) => {
 
 app.post('/day.ejs', (req, res) => {
 
-  const urlRetoolApi = "https://retoolapi.dev/kaI0zp/data"
+  const urlRetoolApi = "https://retoolapi.dev/6VuvDE/data"
 
   // om de juiste datum van de post aan reactie te koppelen
   const chosenDay = req.query.day 
@@ -93,7 +94,7 @@ app.post('/day.ejs', (req, res) => {
 
 app.post('/', (req, res) => {
 
-  const urlRetoolApi = "https://retoolapi.dev/kaI0zp/data"
+  const urlRetoolApi = "https://retoolapi.dev/6VuvDE/data"
 
   // om de juiste datum aan reactie te koppelen
   const chosenDay = req.query.day 
