@@ -18,6 +18,9 @@ header h1{
     display: flex;
     justify-content: space-between;
 }
+.desktop-APOD{
+    display: none;
+}
 header a{
     color:black;
 }
@@ -52,7 +55,6 @@ input:hover{
 .day-picker{
     margin-right:.5rem;
     padding: .3rem 0;
-
 }
 .image-container, button{
     width:100%;
@@ -193,6 +195,12 @@ footer{
     .left-desktop{
         width:65%;
         margin-right:1rem;
+        margin-top: 1rem;
+    }
+    .day-picker{
+        margin-right:.5rem;
+        padding: 0;
+        font-size: 1.3rem;
     }
     .right-desktop{
         width:35%;
@@ -211,6 +219,15 @@ footer{
         background-color: #168aad;
     }
 
-
-
+/* image */
+.image-container, button{
+    height:28rem;
+}
+/* APOD */
+h2{
+    display: none;
+}
+.desktop-APOD{
+    display: block;
+}
 }
