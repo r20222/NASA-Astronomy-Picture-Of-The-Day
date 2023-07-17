@@ -134,7 +134,7 @@ input:hover{
     width:100% ;
     background-color: #fcf6bd;
     padding: .3rem 0;
-    border-radius:.4rem;
+    /* border-radius:.4rem; */
 }
 .more-messages.js-enabled.four-plus-messages{
     display:block;
@@ -145,7 +145,7 @@ input:hover{
 .messages{
     background-color: #caf0f8;
     padding:.5rem;
-    border-radius: .5rem;
+    /* border-radius: .5rem; */
     margin: .5rem 0 .5rem 0;
 }
 
