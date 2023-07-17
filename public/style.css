@@ -15,7 +15,15 @@ header h1{
     margin-bottom:0rem;
     /* color:#C1001C; */
     color:black;
-    
+    display: flex;
+    justify-content: space-between;
+}
+header a{
+    color:black;
+}
+header a:hover{
+    color:white;
+    text-decoration-color: hotpink;
 }
 main{
     margin:0 1rem 0 1rem;
