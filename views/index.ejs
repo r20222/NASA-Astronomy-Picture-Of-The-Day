@@ -53,6 +53,8 @@
     <section class="desktop-comments-container">
       <h4>Comments:</h4>
       <p class="no-messages-yet"></p>
+      <section class="column-reverse">
+
       <% messages.forEach(message => { %>
         <% const dateStr = message.Date; %>
         <% const parsedDate = new Date(dateStr); %>
@@ -69,7 +71,7 @@
             </section>
         <% } %> 
       <% }); %>
-
+      </section>
       <button class="more-messages">READ ALL MESSAGES 🌠</button>
     </section>
 
