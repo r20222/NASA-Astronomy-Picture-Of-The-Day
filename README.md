@@ -21,8 +21,8 @@ I used the following things:
 * JavaScript
 * Express
 * Nodemon
-* dotenv
-* gitignore
+* Dotenv
+* Gitignore
 * HTML popover
 
 ## Sources
@@ -30,7 +30,7 @@ I used the following things:
 NASA API:
 * https://api.nasa.gov/
 
-To make an API for POSTing messages:
+API for POSTing messages:
 * https://retool.com/api-generator/
 
 Preventing double posts on forms:
