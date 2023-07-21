@@ -117,7 +117,7 @@ input:hover{
     background-color: #00b4d8;
 }
 .no-messages-yet{
-    padding-left:.5rem;
+    padding-left:0rem;
 }
 /* meer dan 3 berichten */
 .comments .messages:nth-last-child(-n+3) {
