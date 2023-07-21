@@ -39,7 +39,6 @@ function elementSupportsAttribute(attribute) {
   popover.forEach(popover => {
     if (attribute in popover) {
       console.log(true);
-  
     } else {
       console.log(false);
    popover.classList.add('popover-not-working')

@@ -73,7 +73,9 @@ input:hover{
     width: 100%;
     height: 100%;
     object-fit: contain;
+    cursor: pointer;
 }
+
 .img-popover-container{
     width:95%;
     height:95%;
