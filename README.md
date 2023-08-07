@@ -48,4 +48,7 @@ To host my project:
 Coolors helped me in finding some colors:
 * https://coolors.co/
 
+express-xss-sanitizer
+* https://www.npmjs.com/package/express-xss-sanitizer
+
 I also asked chatGPT for help sometimes
