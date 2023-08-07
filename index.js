@@ -2,6 +2,28 @@
 // importeer express om het te kunnen gebruiken
 import express from 'express'
 
+// importeer de express-xss-sanitizer
+import bodyParser from 'body-parser';
+import { xss } from 'express-xss-sanitizer';
+
+// Maak een nieuwe express app
+const app = express()
+
+// deze code is om xss te voorkomen
+app.use(bodyParser.json({ limit: '1kb' }));
+app.use(bodyParser.urlencoded({ extended: true, limit: '1kb' }));
+app.use(xss());
+
+// Middleware om HTML-tags te verwijderen
+app.use((req, res, next) => {
+  for (const key in req.body) {
+    if (typeof req.body[key] === 'string') {
+      req.body[key] = req.body[key].replace(/<\/?[^>]+(>|$)/g, '');
+    }
+  }
+  next();
+});
+
 // om fetch te gebruiken voor online zetten
 import fetch from 'node-fetch';
 
@@ -11,10 +33,6 @@ import fetch from 'node-fetch';
 
 // importeer dotenv
 import 'dotenv/config'
-
-// Maak een nieuwe express app
-const app = express()
-
 
 // Maak routes met express naar de views & public 
 app.set('view engine', 'ejs')
