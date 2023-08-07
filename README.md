@@ -28,6 +28,7 @@ I used the following things:
 * Nodemon
 * Dotenv
 * Gitignore
+* express-xss-sanitizer (to prevent Cross Site Scripting (XSS) attack)
 * HTML popover
 
 ## Sources
