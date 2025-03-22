@@ -7,6 +7,7 @@ I made this project to practice with API data and to practice with POST so you c
 
 ![image](https://github.com/r20222/NASA-Astronomy-Picture-Of-The-Day/assets/101579892/29dc458f-8894-4837-b810-1ae503a41cc5)
 
+![image](https://github.com/user-attachments/assets/850038ae-a3cf-4549-b083-d54931c24520)
 
 ## How does it work?
 
