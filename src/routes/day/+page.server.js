@@ -7,17 +7,17 @@ export async function load({ url }) {
         };
     }
 
-    const apodData = `${import.meta.env.VITE_APOD}&date=${encodeURIComponent(day)}`;
+    const apodDataUrl = `${import.meta.env.VITE_APOD}&date=${encodeURIComponent(day)}`;
 
-    const response = await fetch(apodData);
+    const response = await fetch(apodDataUrl);
 
     if (!response.ok) {
         throw new Error(`API error: ${response.status}`);
     }
 
-    const data = await response.json();
+    const dataApod = await response.json();
 
     return {
-        data
+        dataApod
     };
 }

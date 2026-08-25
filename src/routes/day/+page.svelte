@@ -1,5 +1,11 @@
 <script>
 	let { data } = $props();
+	let hasMessage = $derived(
+        data.dataHygraph.messages.some(
+            (message) => message.date === data.dataApod.date
+        )
+    );
+	console.log(data)
 	const today = new Date().toISOString().split('T')[0];
 </script>
 
@@ -13,39 +19,32 @@
       wordt gebruikt om alleen de datum te extraheren zonder het tijdstempelgedeelte. -->
 		<form action="/day" method="get">
 			<label class="day-picker" for="day">Pick a day:</label>
-			<input
-				type="date"
-				id="day"
-				name="day"
-				value={data.data.date}
-				min="2015-01-01"
-				max={today}
-			/>
+			<input type="date" id="day" name="day" value={data.dataApod.date} min="2015-01-01" max={today} />
 			<input type="submit" value="CHOOSE DAY 🚀" />
 		</form>
 
-		<h3>{data.data.title}</h3>
+		<h3>{data.dataApod.title}</h3>
 
 		<div class="image-container">
 			<button popovertarget="image-popover">
-				<img src={data.data.url} alt="Astronomy Picture" width="100%" />
+				<img src={data.dataApod.url} alt="Astronomy Picture" width="100%" />
 			</button>
 
 			<div class="img-popover-container" id="image-popover" popover>
 				<button class="popover-close" popovertarget="image-popover" popovertargetaction="hide">
 					<span>Close &#10006;</span>
 				</button>
-				<img src={data.data.hdurl} alt="Astronomy Picture" />
+				<img src={data.dataApod.hdurl} alt="Astronomy Picture" />
 			</div>
 
-			{#if data.data.copyright}
-				<p class="copyright">&#169; {data.data.copyright}</p>
+			{#if data.dataApod.copyright}
+				<p class="copyright">&#169; {data.dataApod.copyright}</p>
 			{/if}
 		</div>
 
 		<section class="explanation">
 			<h4>Explanation:</h4>
-			<p>{data.data.explanation}</p>
+			<p>{data.dataApod.explanation}</p>
 		</section>
 	</section>
 
@@ -55,44 +54,39 @@
 		<section class="comments">
 			<section class="desktop-comments-container">
 				<h4>Comments:</h4>
-				<p class="no-messages-yet"></p>
+				{#if !hasMessage}
+					<p class="no-messages-yet">No comments yet, be the first to leave a comment! 🛸</p>
+				{/if}
 				<section class="column-reverse">
-					<!-- <% messages.forEach(message => { %>
-        <% const dateStr = message.Date; %>
-        <% const parsedDate = new Date(dateStr); %>
-        <% const year = parsedDate.getFullYear(); %>
-        <% const month = String(parsedDate.getMonth() + 1).padStart(2, "0"); %>
-        <% const day = String(parsedDate.getDate()).padStart(2, "0"); %>
-        <% const formattedDates = `${year}-${month}-${day}`; %>
-
-
-        <% if(apodData.date === formattedDates) { %>
-            <section class="messages">
-                <h5><%- message.Name %><span><%- message.Today %></span></h5>
-                <p><%- message.Message %></p>
-            </section>
-        <% } %> 
-      <% }); %> -->
+					{#each data.dataHygraph.messages as message}
+						{#if data.dataApod.date === message.date}
+							<section class="messages">
+								<h5>{message.name}<span>{message.today}</span></h5>
+								<p>{message.message}</p>
+							</section>
+						{/if}
+					{/each}
 				</section>
 				<button class="more-messages">READ ALL MESSAGES 🌠</button>
 			</section>
 
 			<section class="form-message-container">
 				<h4>Add your comment:</h4>
-				<!-- <form action="/day.ejs?day=<%= apodData.date %>" method="post">
-          <fieldset class="post-form">
-              <label for="Name">Name:
-              <input name="Name" id="Name" type="text" required>
-              </label>
+				<form action="/day?day={data.dataApod.date}" method="post">
+					<fieldset class="post-form">
+						<label for="Name"
+							>Name:
+							<input name="Name" id="Name" type="text" required />
+						</label>
 
-              <label for="Message">Message:
-              <input name="Message" id="Message" type="text" required>
-              </label>
+						<label for="Message"
+							>Message:
+							<input name="Message" id="Message" type="text" required />
+						</label>
 
-              <input type="submit" value="SEND 🛰️">
-
-          </fieldset>
-      </form> -->
+						<input type="submit" value="SEND 🛰️" />
+					</fieldset>
+				</form>
 			</section>
 		</section>
 	</section>
