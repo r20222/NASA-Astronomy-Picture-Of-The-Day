@@ -1,24 +1,26 @@
 {
-  "dependencies": {
-    "dotenv": "^16.3.1",
-    "ejs": "^3.1.9",
-    "express": "^4.18.2",
-    "express-xss-sanitizer": "^1.1.6",
-    "moment": "^2.29.4",
-    "node-fetch": "^3.3.1",
-    "nodemon": "^3.0.1",
-    "sanitize-html": "^2.11.0"
-  },
-  "name": "nasa-apod",
-  "version": "1.0.0",
-  "description": "Nasa Astronomy Picture Of The Day",
-  "main": "index.js",
-  "type": "module",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js",
-    "start": "node index.js"
-  },
-  "author": "",
-  "license": "ISC"
+	"name": "nasa-astronomy-picture-of-the-day",
+	"private": true,
+	"version": "0.0.1",
+	"type": "module",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"prepare": "svelte-kit sync || echo ''",
+		"lint": "prettier --check .",
+		"format": "prettier --write ."
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-auto": "^7.0.1",
+		"@sveltejs/kit": "^2.63.0",
+		"@sveltejs/vite-plugin-svelte": "^7.1.2",
+		"prettier": "^3.8.3",
+		"prettier-plugin-svelte": "^4.1.0",
+		"svelte": "^5.56.1",
+		"vite": "^8.0.16"
+	},
+	"dependencies": {
+		"graphql-request": "^7.4.0"
+	}
 }

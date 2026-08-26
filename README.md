@@ -1,55 +1,45 @@
-# NASA-Astronomy-Picture-Of-The-Day
+# sv
 
-This project was made with the APOD API from NASA. 
-Find NASA API's here: https://api.nasa.gov/
+Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
 
-I made this project to practice with API data and to practice with POST so you can leave messages.
+## Creating a project
 
-![image](https://github.com/r20222/NASA-Astronomy-Picture-Of-The-Day/assets/101579892/29dc458f-8894-4837-b810-1ae503a41cc5)
+If you're seeing this, you've probably already done this step. Congrats!
 
-![image](https://github.com/user-attachments/assets/850038ae-a3cf-4549-b083-d54931c24520)
+```sh
+# create a new project
+npx sv create my-app
+```
 
-## How does it work?
+To recreate this project with the same configuration:
 
-Everyday NASA chooses a picture to be the picture of the day. You can choose with the date picker which date you want to see the picture of. If you want to comment on a picture, you could do so in the comment section.
+```sh
+# recreate this project
+npx sv@0.17.0 create --template minimal --no-types --add prettier --install npm ./
+```
 
-## Live link
+## Developing
 
-https://nasa-astronomy-picture-of-the-day.onrender.com/
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
-## Tools
+```sh
+npm run dev
 
-I used the following things:
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
 
-* Node.js
-* EJS
-* CSS
-* JavaScript
-* Express
-* Nodemon
-* Dotenv
-* Gitignore
-* express-xss-sanitizer (to prevent Cross Site Scripting (XSS) attack)
-* HTML popover
+## Building
 
-## Sources
+To create a production version of your app:
 
-NASA API:
-* https://api.nasa.gov/
+```sh
+npm run build
+```
 
-API for POSTing messages:
-* https://retool.com/api-generator/
+You can preview the production build with `npm run preview`.
 
-Preventing double posts on forms:
-* https://www.bram.us/2020/11/04/preventing-double-form-submissions/
+Install dependencies
+* npm install graphql-request
 
-To host my project:
-* https://render.com/
-
-Coolors helped me in finding some colors:
-* https://coolors.co/
-
-express-xss-sanitizer
-* https://www.npmjs.com/package/express-xss-sanitizer
-
-I also asked chatGPT for help sometimes
+> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
