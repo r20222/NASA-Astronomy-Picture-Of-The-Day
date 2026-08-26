@@ -1,11 +1,11 @@
 <script>
+	// Enhance kan je gebruiken om bij submit van form geen volledige pagina refresh te krijgen.
+	// Maar wel bericht weer te geven.
+	import { enhance } from '$app/forms';
 	let { data } = $props();
 	let hasMessage = $derived(
-        data.dataHygraph.messages.some(
-            (message) => message.date === data.dataApod.date
-        )
-    );
-	console.log(data)
+		data.dataHygraph.messages.some((message) => message.date === data.dataApod.date)
+	);
 	const today = new Date().toISOString().split('T')[0];
 </script>
 
@@ -19,7 +19,14 @@
       wordt gebruikt om alleen de datum te extraheren zonder het tijdstempelgedeelte. -->
 		<form action="/day" method="get">
 			<label class="day-picker" for="day">Pick a day:</label>
-			<input type="date" id="day" name="day" value={data.dataApod.date} min="2015-01-01" max={today} />
+			<input
+				type="date"
+				id="day"
+				name="day"
+				value={data.dataApod.date}
+				min="2015-01-01"
+				max={today}
+			/>
 			<input type="submit" value="CHOOSE DAY 🚀" />
 		</form>
 
@@ -72,16 +79,16 @@
 
 			<section class="form-message-container">
 				<h4>Add your comment:</h4>
-				<form action="/day?day={data.dataApod.date}" method="post">
+				<form action="/day?day={data.dataApod.date}" method="post" use:enhance>
 					<fieldset class="post-form">
 						<label for="Name"
 							>Name:
-							<input name="Name" id="Name" type="text" required />
+							<input name="Name" id="Name" type="text" maxlength="30" required />
 						</label>
 
 						<label for="Message"
 							>Message:
-							<input name="Message" id="Message" type="text" required />
+							<input name="Message" id="Message" type="text" maxlength="500" required />
 						</label>
 
 						<input type="submit" value="SEND 🛰️" />

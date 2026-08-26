@@ -25,6 +25,24 @@ export const actions = {
         const message = formData.get('Message');
         const date = url.searchParams.get('day');
 
+        if (
+            typeof name !== 'string' ||
+            typeof message !== 'string' ||
+            !name.trim() ||
+            !message.trim()
+        ) {
+            return {
+                success: false,
+                error: 'Name and message are required.'
+            };
+        }
+        if (name.length > 50 || message.length > 500) {
+            return {
+                success: false,
+                error: 'Message is too long.'
+            };
+        }
+
         const today = new Date().toLocaleString('en-US', {
             month: 'short',
             day: 'numeric',
