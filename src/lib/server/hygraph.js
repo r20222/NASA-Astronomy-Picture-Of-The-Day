@@ -1,49 +1,6 @@
 import { request, gql } from 'graphql-request';
 import { HYGRAPH_URL, HYGRAPH_TOKEN } from '$env/static/private';
-
-
-// export async function createMessage(name, message, date, today) {
-//     const mutation = gql`
-//         mutation CreateMessage(
-//             $name: String!
-//             $message: String!
-//             $date: Date!
-//             $today: String!
-//         ) {
-//             createMessage(
-//                 data: {
-//                     name: $name
-//                     message: $message
-//                     date: $date
-//                     today: $today
-//                 }
-//             ) {
-//                 id
-//                 name
-//                 message
-//                 date
-//                 today
-//             }
-//         }
-//     `;
-
-//     const variables = {
-//         name,
-//         message,
-//         date,
-//         today
-//     };
-
-//     return await request(
-//         HYGRAPH_URL,
-//         mutation,
-//         variables,
-//         {
-//             Authorization: `Bearer ${HYGRAPH_TOKEN}`
-//         }
-//     );
-// }
-
+import { getMessages } from '$lib';
 
 export async function createMessage(name, message, date, today) {
     const createMutation = gql`
@@ -94,7 +51,7 @@ export async function createMessage(name, message, date, today) {
         }
     `;
 
-    return await request(
+    await request(
         HYGRAPH_URL,
         publishMutation,
         {
@@ -106,4 +63,9 @@ export async function createMessage(name, message, date, today) {
     );
 
     console.log('Publish request klaar');
+
+    // Wacht heel even zodat het bericht weergegeven kan worden (anders wil die nog wel eens niet verschijnen)
+    await new Promise((resolve) => setTimeout(resolve, 400));
+
+    return await getMessages();
 }
