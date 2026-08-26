@@ -1,3 +1,5 @@
+import { APOD_KEY } from '$env/static/private';
+
 export async function load({ url }) {
     const day = url.searchParams.get('day');
 
@@ -7,7 +9,7 @@ export async function load({ url }) {
         };
     }
 
-    const apodDataUrl = `${import.meta.env.VITE_APOD}&date=${encodeURIComponent(day)}`;
+    const apodDataUrl = `${APOD_KEY}&date=${encodeURIComponent(day)}`;
 
     const response = await fetch(apodDataUrl);
 

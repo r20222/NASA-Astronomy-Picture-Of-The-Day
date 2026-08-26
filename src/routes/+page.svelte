@@ -1,8 +1,10 @@
 <script>
+ import { enhance } from '$app/forms';
 	let { data } = $props();
 	let hasMessage = $derived(
 		data.dataHygraph.messages.some((message) => message.date === data.dataApod.date)
 	);
+	
 	console.log(data);
 </script>
 
@@ -71,7 +73,7 @@
 
 			<section class="form-message-container">
 				<h4>Add your comment:</h4>
-				<form action="/?day={data.dataApod.date}" method="post">
+				<form action="/?day={data.dataApod.date}" method="post" use:enhance>
 					<fieldset class="post-form">
 						<label for="Name"
 							>Name:

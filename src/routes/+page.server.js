@@ -1,6 +1,9 @@
+import { APOD_KEY } from '$env/static/private';
+import { createMessage } from '$lib/server/hygraph';
+
 export async function load() {
     try {
-        const apodDataUrl = import.meta.env.VITE_APOD;
+        const apodDataUrl = APOD_KEY;
         const response = await fetch(apodDataUrl);
         if (!response.ok) {
             throw new Error(`Failed to fetch data (status ${response.status})`);
@@ -20,11 +23,26 @@ export const actions = {
 
         const name = formData.get('Name');
         const message = formData.get('Message');
-        const day = url.searchParams.get('day');
+        const date = url.searchParams.get('day');
 
-        console.log('Name:', name);
-        console.log('Message:', message);
-        console.log('Day:', day);
+        const today = new Date().toLocaleString('en-US', {
+            month: 'short',
+            day: 'numeric',
+            year: 'numeric',
+            hour: 'numeric',
+            minute: '2-digit',
+            hour12: true
+        });
+
+        const result = await createMessage(
+            name,
+            message,
+            date,
+            today
+        );
+        console.log('Hygraph klaar:', result);
+
+        // console.log(result);
 
         return {
             success: true
