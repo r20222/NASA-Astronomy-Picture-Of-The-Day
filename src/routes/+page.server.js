@@ -42,8 +42,6 @@ export const actions = {
         );
         console.log('Hygraph klaar:', result);
 
-        // console.log(result);
-
         return {
             success: true
         };

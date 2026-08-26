@@ -1,11 +1,11 @@
 <script>
+// Enhance kan je gebruiken om bij submit van form geen volledige pagina refresh te krijgen. 
+// Maar wel bericht weer te geven.
  import { enhance } from '$app/forms';
 	let { data } = $props();
 	let hasMessage = $derived(
 		data.dataHygraph.messages.some((message) => message.date === data.dataApod.date)
 	);
-	
-	console.log(data);
 </script>
 
 <main>

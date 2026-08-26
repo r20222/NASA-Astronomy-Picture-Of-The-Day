@@ -62,8 +62,6 @@ export async function createMessage(name, message, date, today) {
         }
     );
 
-    console.log('Publish request klaar');
-
     // Wacht heel even zodat het bericht weergegeven kan worden (anders wil die nog wel eens niet verschijnen)
     await new Promise((resolve) => setTimeout(resolve, 400));
 
