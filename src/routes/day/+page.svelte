@@ -24,7 +24,7 @@
 				id="day"
 				name="day"
 				value={data.dataApod.date}
-				min="2015-01-01"
+				min="1995-06-16"
 				max={today}
 			/>
 			<input type="submit" value="CHOOSE DAY 🚀" />
