@@ -21,22 +21,16 @@
 
 	/* ik wil nog een dark mode */
 	:root {
-		--header: #00b4d8;
-		--header-hover-color: white;
-		--header-underline-hover: hotpink;
-		--input-background-color: #fcf6bd;
+		--vanilla: #FCF6BD;
+		--not-white: #FFFBD3;
+		--dark-blue: #044356;
+		--darker-blue: #042b38;
+		--text: #222222;
 		--input-color: black;
 	}
 	:global(body) {
 		font-family: 'Space Grotesk', sans-serif;
-		background-color: #a9def9;
+		background-color: var(--vanilla);
 		margin: 0rem;
 	}
-
-
-
-
-/* Nog goed uitzoeken */
-
-
 </style>

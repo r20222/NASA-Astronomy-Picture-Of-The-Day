@@ -1,9 +1,5 @@
 <header>
-	<h1>
-		<a title="Nasa's API's" href="https://api.nasa.gov/" target="_blank">NASA</a><span
-			class="desktop-APOD">Astronomy Picture Of The Day</span
-		><a title="My Github" href="https://github.com/r20222" target="_blank">r20222</a>
-	</h1>
+	<a class="homelink" title="Home" href="/">NASA APOD</a>
 </header>
 
 <style>
@@ -11,26 +7,16 @@
 		background-color: var(--header);
 		padding: 1rem;
 	}
-	header h1 {
-		margin-top: 0rem;
-		margin-bottom: 0rem;
-		color: black;
-		display: flex;
-		justify-content: space-between;
-	}
-	.desktop-APOD {
-		display: none;
-	}
 	header a {
-		color: black;
+		color: var(--dark-blue);
 	}
 	header a:hover {
 		color: var(--header-hover-color);
 		text-decoration-color: var(--header-underline-hover);
 	}
-	@media screen and (min-width: 50em) {
-		.desktop-APOD {
-			display: block;
-		}
+	.homelink{
+		font-size: 1.5rem;
+		font-weight: 600;
+		text-decoration: none;
 	}
 </style>

@@ -2,6 +2,7 @@
 // Enhance kan je gebruiken om bij submit van form geen volledige pagina refresh te krijgen. 
 // Maar wel bericht weer te geven.
  import { enhance } from '$app/forms';
+ import Search from '$lib/components/Search.svelte';
 	let { data } = $props();
 	let hasMessage = $derived(
 		data.dataHygraph.messages.some((message) => message.date === data.dataApod.date)
@@ -9,33 +10,22 @@
 </script>
 
 <main>
+
 	<section class="left-desktop">
-		<h2>Astronomy Picture Of The Day</h2>
-		<form action="/day" method="get">
-			<label class="day-picker" for="day">Pick a day:</label>
-			<input
-				type="date"
-				id="day"
-				name="day"
-				value={data.dataApod.date}
-				min="1995-06-16"
-				max={data.dataApod.date}
-			/>
-			<input type="submit" value="CHOOSE DAY 🚀" />
-		</form>
+		<Search value={data.dataApod.date} max={data.dataApod.date}/>
 
 		<h3>{data.dataApod.title}</h3>
 
 		<div class="image-container">
 			<button popovertarget="image-popover">
-				<img src={data.dataApod.url} alt="Astronomy Picture" width="100%" />
+				<img src={data.dataApod.url} alt="" width="100%" />
 			</button>
 
 			<div class="img-popover-container" id="image-popover" popover>
 				<button class="popover-close" popovertarget="image-popover" popovertargetaction="hide">
 					<span>Close &#10006;</span>
 				</button>
-				<img src={data.dataApod.hdurl} alt="Astronomy Picture" />
+				<img src={data.dataApod.hdurl} alt="" />
 			</div>
 
 			{#if data.dataApod.copyright}
