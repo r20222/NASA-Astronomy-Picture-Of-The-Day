@@ -2,37 +2,33 @@
 	// Enhance kan je gebruiken om bij submit van form geen volledige pagina refresh te krijgen.
 	// Maar wel bericht weer te geven.
 	import { enhance } from '$app/forms';
+	import Search from '$lib/components/Search.svelte';
+	import Title from '$lib/components/Title.svelte';
+	import Popover from '$lib/components/Popover.svelte';
+
 	let { data } = $props();
 	let hasMessage = $derived(
 		data.dataHygraph.messages.some((message) => message.date === data.dataApod.date)
 	);
 	const today = new Date().toISOString().split('T')[0];
+
+
+	const dateApodPhoto = data.dataApod.date;
+
+	const formattedDateApodPhoto = new Date(dateApodPhoto).toLocaleDateString("en-US", {
+		month: "short",
+		day: "numeric",
+		year: "numeric"
+	});
 </script>
 
 <main>
 	<section class="left-desktop">
-		<h2>Astronomy Picture Of The Day</h2>
+		<Search value={data.dataApod.date} max={today} />
+		<Title title={data.dataApod.title} date={formattedDateApodPhoto} />
+		<Popover url={data.dataApod.url} hdurl={data.dataApod.hdurl} copyright={data.dataApod.copyright} />
 
-		<!-- hulp van chatgpt: De toISOString()-methode wordt 
-      gebruikt om de huidige datum om te zetten naar een ISO 8601-datumnotatie 
-      die wordt verwacht door het max-attribuut van het datumveld. De split('T')[0] 
-      wordt gebruikt om alleen de datum te extraheren zonder het tijdstempelgedeelte. -->
-		<form action="/day" method="get">
-			<label class="day-picker" for="day">Pick a day:</label>
-			<input
-				type="date"
-				id="day"
-				name="day"
-				value={data.dataApod.date}
-				min="1995-06-16"
-				max={today}
-			/>
-			<input type="submit" value="CHOOSE DAY 🚀" />
-		</form>
-
-		<h3>{data.dataApod.title}</h3>
-
-		<div class="image-container">
+		<!-- <div class="image-container">
 			<button popovertarget="image-popover">
 				<img src={data.dataApod.url} alt="Astronomy Picture" width="100%" />
 			</button>
@@ -47,7 +43,7 @@
 			{#if data.dataApod.copyright}
 				<p class="copyright">&#169; {data.dataApod.copyright}</p>
 			{/if}
-		</div>
+		</div> -->
 
 		<section class="explanation">
 			<h4>Explanation:</h4>

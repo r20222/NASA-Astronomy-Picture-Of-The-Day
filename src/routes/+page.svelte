@@ -1,20 +1,29 @@
 <script>
-// Enhance kan je gebruiken om bij submit van form geen volledige pagina refresh te krijgen. 
-// Maar wel bericht weer te geven.
- import { enhance } from '$app/forms';
- import Search from '$lib/components/Search.svelte';
+	// Enhance kan je gebruiken om bij submit van form geen volledige pagina refresh te krijgen. 
+	// Maar wel bericht weer te geven.
+	import { enhance } from '$app/forms';
+	import Search from '$lib/components/Search.svelte';
+	import Title from '$lib/components/Title.svelte';
 	let { data } = $props();
 	let hasMessage = $derived(
 		data.dataHygraph.messages.some((message) => message.date === data.dataApod.date)
 	);
+
+	const dateApodPhoto = data.dataApod.date;
+
+	const formattedDateApodPhoto = new Date(dateApodPhoto).toLocaleDateString("en-US", {
+		month: "short",
+		day: "numeric",
+		year: "numeric"
+	});
 </script>
 
 <main>
 
 	<section class="left-desktop">
 		<Search value={data.dataApod.date} max={data.dataApod.date}/>
+		<Title title={data.dataApod.title} date={formattedDateApodPhoto} />
 
-		<h3>{data.dataApod.title}</h3>
 
 		<div class="image-container">
 			<button popovertarget="image-popover">

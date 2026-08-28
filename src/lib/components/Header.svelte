@@ -15,7 +15,7 @@
 		text-decoration-color: var(--header-underline-hover);
 	}
 	.homelink{
-		font-size: 1.5rem;
+		font-size: 1.8rem;
 		font-weight: 600;
 		text-decoration: none;
 	}
