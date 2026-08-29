@@ -6,6 +6,7 @@
 	import Title from '$lib/components/Title.svelte';
 	import Popover from '$lib/components/Popover.svelte';
 	import Explanation from '$lib/components/Explanation.svelte';
+	import Comments from '$lib/components/Comments.svelte';
 	let { data } = $props();
 	let hasMessage = $derived(
 		data.dataHygraph.messages.some((message) => message.date === data.dataApod.date)
@@ -38,23 +39,7 @@
 
 	<section class="right-desktop">
 		<section class="comments">
-			<section class="desktop-comments-container">
-				<h4>Comments:</h4>
-				{#if !hasMessage}
-					<p class="no-messages-yet">No comments yet, be the first to leave a comment! 🛸</p>
-				{/if}
-				<section class="column-reverse">
-					{#each data.dataHygraph.messages as message}
-						{#if data.dataApod.date === message.date}
-							<section class="messages">
-								<h5>{message.name}<span>{message.today}</span></h5>
-								<p>{message.message}</p>
-							</section>
-						{/if}
-					{/each}
-				</section>
-				<button class="more-messages">READ ALL MESSAGES 🌠</button>
-			</section>
+			<Comments messages={data.dataHygraph.messages} apodDate={data.dataApod.date} />
 
 			<section class="form-message-container">
 				<h4>Add your comment:</h4>
@@ -162,48 +147,7 @@
 		padding: 0.5rem;
 		background-color: #00b4d8;
 	}
-	.no-messages-yet {
-		padding-left: 0rem;
-	}
-	/* meer dan 3 berichten */
-	.comments .messages:nth-last-child(-n + 3) {
-		display: block;
-	}
-	.column-reverse {
-		display: flex;
-		flex-direction: column-reverse;
-		gap: 0;
-	}
-	.messages.js-enabled {
-		display: none;
-	}
-	.more-messages {
-		display: none;
-		border: none;
-		width: 100%;
-		background-color: #fcf6bd;
-		padding: 0.3rem 0;
-		height: fit-content;
-	}
-	.more-messages:hover {
-		cursor: pointer;
-	}
-	.more-messages.js-enabled.four-plus-messages {
-		display: block;
-	}
-	.messages.js-enabled.more-messages-clicked {
-		display: block;
-	}
-	.messages {
-		background-color: #caf0f8;
-		padding: 0.5rem;
-		margin: 0.5rem 0 0.5rem 0;
-	}
-	.messages h5 {
-		margin: 0 0 auto 0;
-		display: flex;
-		justify-content: space-between;
-	}
+
 	.post-form {
 		display: flex;
 		flex-direction: column;

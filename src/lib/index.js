@@ -9,7 +9,7 @@ export async function getMessages() {
 
   const query = gql`
     query Messages {
-        messages(first: 100) {
+        messages(first: 100, orderBy: publishedAt_DESC) {
             id
             date
             name
