@@ -13,24 +13,26 @@
 	);
 	const today = new Date().toISOString().split('T')[0];
 
-
-	const dateApodPhoto = data.dataApod.date;
-
-	const formattedDateApodPhoto = new Date(dateApodPhoto).toLocaleDateString("en-US", {
-		month: "short",
-		day: "numeric",
-		year: "numeric"
-	});
+	// Format date to this format: Aug 29, 2026
+	let formattedDateApodPhoto = $derived(
+		new Date(data.dataApod.date).toLocaleDateString('en-US', {
+			month: 'short',
+			day: 'numeric',
+			year: 'numeric'
+		})
+	);
 </script>
 
 <main>
 	<section class="left-desktop">
 		<Search value={data.dataApod.date} max={today} />
 		<Title title={data.dataApod.title} date={formattedDateApodPhoto} />
-		<Popover url={data.dataApod.url} hdurl={data.dataApod.hdurl} copyright={data.dataApod.copyright} />
+		<Popover
+			url={data.dataApod.url}
+			hdurl={data.dataApod.hdurl}
+			copyright={data.dataApod.copyright}
+		/>
 		<Explanation explanation={data.dataApod.explanation} />
-
-
 	</section>
 
 	<!-- right part desktop -->
@@ -153,7 +155,7 @@
 		width: fit-content;
 		background-color: rgba(0, 0, 0, 0.8);
 	}
-	
+
 	.comments {
 		padding: 0.5rem;
 		background-color: #00b4d8;
@@ -251,7 +253,7 @@
 			padding: 1rem;
 			background-color: #168aad;
 		}
-		
+
 		.comments {
 			height: 100%;
 			display: flex;

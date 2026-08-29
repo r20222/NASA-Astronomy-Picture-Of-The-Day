@@ -3,7 +3,6 @@
 </script>
 
 <h1>{title}</h1>
-<!-- date moet ook geupdate worden wanneer je een andere foto weergeeft. -->
 <p>Astronomy Picture Of The Day - {date}</p>
 
 <style>
