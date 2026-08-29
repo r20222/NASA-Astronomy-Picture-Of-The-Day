@@ -50,10 +50,7 @@
 	main {
 		margin: 0 1rem 0 1rem;
 	}
-	.comments {
-		padding: 0.5rem;
-		background-color: #00b4d8;
-	}
+
 	/* mediaqueries */
 
 	/* 368px is 23 em */
@@ -85,22 +82,22 @@
 			padding: 0;
 			font-size: 1.3rem;
 		}
-		.right-desktop {
+		/* .right-desktop {
 			width: 35%;
 			padding: 1rem;
 			background-color: #168aad;
-		}
+		} */
 		.explanation p {
 			max-width: 40rem;
 		}
-		.comments {
+		/* .comments {
 			height: 100%;
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
 			padding: 0;
 			background-color: #168aad;
-		}
+		} */
 
 		/* image */
 		.image-container,
