@@ -19,7 +19,8 @@
     form {
         display:grid;
         max-width: 20rem;
-        /* gap:1rem; */
+        grid-area: search;
+   
         grid-template-columns: 1fr 1fr;
     }
     label {

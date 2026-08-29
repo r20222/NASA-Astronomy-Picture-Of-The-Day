@@ -30,6 +30,9 @@
 </div>
 
 <style>
+	.image-container {
+		grid-area: popover;
+	}
 	figure {
 		margin: 0;
 		border-radius: 1rem;
@@ -65,9 +68,9 @@
 		overflow: hidden;
 	}
 	.popover-close {
-		display:block;
+		display: block;
 		margin-left: auto;
-		margin-top:calc(1rem - 4px);
+		margin-top: calc(1rem - 4px);
 		padding: 0.5rem 1rem;
 		background-color: var(--dark-blue);
 		color: var(--vanilla);
@@ -82,6 +85,54 @@
 		}
 	}
 
+	@media screen and (min-width: 48em) {
+		/* .image-container {
+			background-color: pink;
+		} */
+		[popovertarget='image-popover'] {
+			position: relative;
+			width: 100%;
+			background-color: black;
+			object-fit: contain;
+			border-radius: 1rem;
+		}
+		figure {
+			/* width:100%; */
+			/* background-color: green; */
+			/* display: flex;
+			flex-direction: column; */
+			/* align-items: center; */
+			/* justify-content: center; */
+		}
+		img {
+			width: 100%;
+			height: 27rem;
+			object-fit: contain;
+		}
+		/* .image-container,
+		button {
+			position:relative;
+			width: 100%;
+			height: 20rem;
+			overflow: hidden;
+			background-color: black;
+			border: none;
+		} */
+		/* .image-container img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+			cursor: pointer;
+		}
+
+		.img-popover-container {
+			width: 95%;
+			height: 95%;
+			object-fit: contain;
+			overflow: hidden;
+			background-color: black;
+		} */
+	}
 	/* .img-popover-container {
 	}
 

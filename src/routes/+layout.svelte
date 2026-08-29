@@ -26,7 +26,8 @@
 		--dark-blue: #044356;
 		--darker-blue: #042b38;
 		--text: #222222;
-		--input-color: black;
+		--black: var(--black);
+		/* --input-color: black; */
 	}
 	:global(body) {
 		font-family: 'Space Grotesk', sans-serif;

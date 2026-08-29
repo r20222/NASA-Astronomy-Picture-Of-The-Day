@@ -10,6 +10,7 @@
 <style>
 	section {
 		margin-bottom: 3rem;
+		grid-area: explanation;
 		color: var(--text);
 	}
 	section p {

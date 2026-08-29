@@ -26,6 +26,7 @@
 <style>
 	section {
 		color: var(--text);
+		grid-area: comments;
 	}
     h3 {
 		margin: 0 0 auto 0;

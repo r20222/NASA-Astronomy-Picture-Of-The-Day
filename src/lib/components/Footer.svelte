@@ -12,6 +12,7 @@
 <style>
 	footer {
 		padding: 1rem;
+		grid-area: footer;
 	}
 	span{
 		display:block;

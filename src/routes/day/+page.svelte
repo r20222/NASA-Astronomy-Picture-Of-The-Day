@@ -23,27 +23,16 @@
 </script>
 
 <main>
-	<section class="left-desktop">
-		<Search value={data.dataApod.date} max={today} />
-		<Title title={data.dataApod.title} date={formattedDateApodPhoto} />
-		<Popover
-			url={data.dataApod.url}
-			hdurl={data.dataApod.hdurl}
-			copyright={data.dataApod.copyright}
-		/>
-		<Explanation explanation={data.dataApod.explanation} />
-	</section>
-
-	<!-- right part desktop -->
-
-	<section class="right-desktop">
-		<section class="comments">
-
-			<Comments messages={data.dataHygraph.messages} apodDate={data.dataApod.date} />
-			<Form apodDate={data.dataApod.date} />
-
-		</section>
-	</section>
+	<Search value={data.dataApod.date} max={today} />
+	<Title title={data.dataApod.title} date={formattedDateApodPhoto} />
+	<Popover
+		url={data.dataApod.url}
+		hdurl={data.dataApod.hdurl}
+		copyright={data.dataApod.copyright}
+	/>
+	<Explanation explanation={data.dataApod.explanation} />
+	<Comments messages={data.dataHygraph.messages} apodDate={data.dataApod.date} />
+	<Form apodDate={data.dataApod.date} />
 </main>
 
 <style>
@@ -78,35 +67,27 @@
 		background-color: black;
 	}
 
-
-
-
-
-
-
-
 	/* mediaqueries */
-
-
 
 	/* 768px is 48em */
 
 	@media screen and (min-width: 48em) {
 		main {
-			display: flex;
-			margin-right: 0;
-		}
-		.left-desktop {
-			width: 65%;
-			margin-right: 1rem;
-			margin-top: 1rem;
+			display: grid;
+			column-gap: 1rem;
+			grid-template-areas:
+				'title       title'
+				'popover     search'
+				'popover     comments'
+				'explanation comments'
+				'explanation form'
+				'footer 	 footer';
 		}
 		.day-picker {
 			margin-right: 0.5rem;
 			padding: 0;
 			font-size: 1.3rem;
 		}
-		
 
 		/* image */
 		.image-container,

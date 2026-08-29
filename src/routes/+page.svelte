@@ -1,5 +1,4 @@
 <script>
-
 	import Search from '$lib/components/Search.svelte';
 	import Title from '$lib/components/Title.svelte';
 	import Popover from '$lib/components/Popover.svelte';
@@ -24,26 +23,17 @@
 </script>
 
 <main>
-	<section class="left-desktop">
-		<Search value={data.dataApod.date} max={data.dataApod.date} />
-		<Title title={data.dataApod.title} date={formattedDateApodPhoto} />
-		<Popover
-			url={data.dataApod.url}
-			hdurl={data.dataApod.hdurl}
-			copyright={data.dataApod.copyright}
-		/>
-		<Explanation explanation={data.dataApod.explanation} />
-	</section>
+	<Search value={data.dataApod.date} max={data.dataApod.date} />
+	<Title title={data.dataApod.title} date={formattedDateApodPhoto} />
+	<Popover
+		url={data.dataApod.url}
+		hdurl={data.dataApod.hdurl}
+		copyright={data.dataApod.copyright}
+	/>
+	<Explanation explanation={data.dataApod.explanation} />
 
-	<!-- right part desktop -->
-
-	<section class="right-desktop">
-		<section class="comments">
-			<Comments messages={data.dataHygraph.messages} apodDate={data.dataApod.date} />
-			<Form apodDate={data.dataApod.date} />
-			
-		</section>
-	</section>
+	<Comments messages={data.dataHygraph.messages} apodDate={data.dataApod.date} />
+	<Form apodDate={data.dataApod.date} />
 </main>
 
 <style>
@@ -53,40 +43,26 @@
 
 	/* mediaqueries */
 
-	/* 368px is 23 em */
-	@media screen and (min-width: 23em) {
-		.day-picker {
-			margin-right: 0.5rem;
-			padding: 0.3rem 0;
-			font-size: 1rem;
-		}
-	}
-
-	/* 800px is 50em */
-
-	@media screen and (min-width: 50em) {
-		/* body{
-        background-color: yellow;
-    } */
+	@media screen and (min-width: 48em) {
 		main {
-			display: flex;
-			margin-right: 0;
+			display: grid;
+			grid-template-columns: 3fr 2fr;
+			column-gap: 1rem;
+			grid-template-areas:
+				'title       title'
+				'popover     search'
+				'popover     comments'
+				'explanation comments'
+				'explanation form'
+				'footer 	 footer';
 		}
-		.left-desktop {
-			width: 65%;
-			margin-right: 1rem;
-			margin-top: 1rem;
-		}
+
 		.day-picker {
 			margin-right: 0.5rem;
 			padding: 0;
 			font-size: 1.3rem;
 		}
-		/* .right-desktop {
-			width: 35%;
-			padding: 1rem;
-			background-color: #168aad;
-		} */
+
 		.explanation p {
 			max-width: 40rem;
 		}
@@ -103,13 +79,6 @@
 		.image-container,
 		button {
 			height: 28rem;
-		}
-		/* APOD */
-		h2 {
-			display: none;
-		}
-		.desktop-APOD {
-			display: block;
 		}
 	}
 </style>

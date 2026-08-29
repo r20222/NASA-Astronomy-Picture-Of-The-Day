@@ -44,6 +44,7 @@
 	section {
 		margin-bottom: 3rem;
 		color: var(--text);
+		grid-area: form;
 	}
 	h3 {
 		margin-bottom: 0.5rem;
