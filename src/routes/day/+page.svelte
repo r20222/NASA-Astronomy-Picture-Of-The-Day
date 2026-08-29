@@ -5,6 +5,7 @@
 	import Search from '$lib/components/Search.svelte';
 	import Title from '$lib/components/Title.svelte';
 	import Popover from '$lib/components/Popover.svelte';
+	import Explanation from '$lib/components/Explanation.svelte';
 
 	let { data } = $props();
 	let hasMessage = $derived(
@@ -27,28 +28,9 @@
 		<Search value={data.dataApod.date} max={today} />
 		<Title title={data.dataApod.title} date={formattedDateApodPhoto} />
 		<Popover url={data.dataApod.url} hdurl={data.dataApod.hdurl} copyright={data.dataApod.copyright} />
+		<Explanation explanation={data.dataApod.explanation} />
 
-		<!-- <div class="image-container">
-			<button popovertarget="image-popover">
-				<img src={data.dataApod.url} alt="Astronomy Picture" width="100%" />
-			</button>
 
-			<div class="img-popover-container" id="image-popover" popover>
-				<button class="popover-close" popovertarget="image-popover" popovertargetaction="hide">
-					<span>Close &#10006;</span>
-				</button>
-				<img src={data.dataApod.hdurl} alt="Astronomy Picture" />
-			</div>
-
-			{#if data.dataApod.copyright}
-				<p class="copyright">&#169; {data.dataApod.copyright}</p>
-			{/if}
-		</div> -->
-
-		<section class="explanation">
-			<h4>Explanation:</h4>
-			<p>{data.dataApod.explanation}</p>
-		</section>
 	</section>
 
 	<!-- right part desktop -->
@@ -171,10 +153,7 @@
 		width: fit-content;
 		background-color: rgba(0, 0, 0, 0.8);
 	}
-	.explanation {
-		background-color: #caf0f8;
-		padding: 0.5rem;
-	}
+	
 	.comments {
 		padding: 0.5rem;
 		background-color: #00b4d8;
@@ -272,9 +251,7 @@
 			padding: 1rem;
 			background-color: #168aad;
 		}
-		.explanation p {
-			max-width: 40rem;
-		}
+		
 		.comments {
 			height: 100%;
 			display: flex;

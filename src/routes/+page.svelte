@@ -4,6 +4,8 @@
 	import { enhance } from '$app/forms';
 	import Search from '$lib/components/Search.svelte';
 	import Title from '$lib/components/Title.svelte';
+	import Popover from '$lib/components/Popover.svelte';
+	import Explanation from '$lib/components/Explanation.svelte';
 	let { data } = $props();
 	let hasMessage = $derived(
 		data.dataHygraph.messages.some((message) => message.date === data.dataApod.date)
@@ -23,29 +25,10 @@
 	<section class="left-desktop">
 		<Search value={data.dataApod.date} max={data.dataApod.date}/>
 		<Title title={data.dataApod.title} date={formattedDateApodPhoto} />
+		<Popover url={data.dataApod.url} hdurl={data.dataApod.hdurl} copyright={data.dataApod.copyright} />
+		<Explanation explanation={data.dataApod.explanation} />
 
-
-		<div class="image-container">
-			<button popovertarget="image-popover">
-				<img src={data.dataApod.url} alt="" width="100%" />
-			</button>
-
-			<div class="img-popover-container" id="image-popover" popover>
-				<button class="popover-close" popovertarget="image-popover" popovertargetaction="hide">
-					<span>Close &#10006;</span>
-				</button>
-				<img src={data.dataApod.hdurl} alt="" />
-			</div>
-
-			{#if data.dataApod.copyright}
-				<p class="copyright">&#169; {data.dataApod.copyright}</p>
-			{/if}
-		</div>
-
-		<section class="explanation">
-			<h4>Explanation:</h4>
-			<p>{data.dataApod.explanation}</p>
-		</section>
+		
 	</section>
 
 	<!-- right part desktop -->
