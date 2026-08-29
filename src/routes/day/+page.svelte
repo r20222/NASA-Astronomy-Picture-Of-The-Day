@@ -1,12 +1,10 @@
 <script>
-	// Enhance kan je gebruiken om bij submit van form geen volledige pagina refresh te krijgen.
-	// Maar wel bericht weer te geven.
-	import { enhance } from '$app/forms';
 	import Search from '$lib/components/Search.svelte';
 	import Title from '$lib/components/Title.svelte';
 	import Popover from '$lib/components/Popover.svelte';
 	import Explanation from '$lib/components/Explanation.svelte';
 	import Comments from '$lib/components/Comments.svelte';
+	import Form from '$lib/components/Form.svelte';
 
 	let { data } = $props();
 	let hasMessage = $derived(
@@ -42,42 +40,8 @@
 		<section class="comments">
 
 			<Comments messages={data.dataHygraph.messages} apodDate={data.dataApod.date} />
-			<!-- <section class="desktop-comments-container">
-				<h4>Comments:</h4>
-				{#if !hasMessage}
-					<p class="no-messages-yet">No comments yet, be the first to leave a comment! 🛸</p>
-				{/if}
-				<section class="column-reverse">
-					{#each data.dataHygraph.messages as message}
-						{#if data.dataApod.date === message.date}
-							<section class="messages">
-								<h5>{message.name}<span>{message.today}</span></h5>
-								<p>{message.message}</p>
-							</section>
-						{/if}
-					{/each}
-				</section>
-				<button class="more-messages">READ ALL MESSAGES 🌠</button>
-			</section> -->
+			<Form apodDate={data.dataApod.date} />
 
-			<section class="form-message-container">
-				<h4>Add your comment:</h4>
-				<form action="/day?day={data.dataApod.date}" method="post" use:enhance>
-					<fieldset class="post-form">
-						<label for="Name"
-							>Name:
-							<input name="Name" id="Name" type="text" maxlength="30" required />
-						</label>
-
-						<label for="Message"
-							>Message:
-							<input name="Message" id="Message" type="text" maxlength="500" required />
-						</label>
-
-						<input type="submit" value="SEND 🛰️" />
-					</fieldset>
-				</form>
-			</section>
 		</section>
 	</section>
 </main>
@@ -85,26 +49,6 @@
 <style>
 	main {
 		margin: 0 1rem 0 1rem;
-	}
-	form {
-		display: flex;
-	}
-	h3 {
-		height: 3.5rem;
-	}
-	input {
-		border: none;
-		font-family: 'Space Grotesk', sans-serif;
-		background-color: var(--input-background-color);
-		height: 2rem;
-		color: var(--input-color);
-	}
-	input:nth-of-type(1) {
-		margin-right: 1rem;
-		padding: 0 0.3rem;
-	}
-	input:hover {
-		cursor: pointer;
 	}
 	.day-picker {
 		margin-right: 0.5rem;
@@ -161,30 +105,8 @@
 
 
 
-	
-	.column-reverse {
-		display: flex;
-		flex-direction: column-reverse;
-		gap: 0;
-	}
 
-	.post-form {
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
-		border: none;
-		width: 100%;
-		padding: 0.5rem 0rem;
-		margin: 0rem;
-	}
-	.post-form label {
-		display: flex;
-		flex-direction: column;
-	}
-	.post-form input {
-		background-color: #fcf6bd;
-		margin-right: 0rem;
-	}
+
 
 	/* mediaqueries */
 

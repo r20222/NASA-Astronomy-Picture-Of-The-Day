@@ -1,5 +1,5 @@
 <script>
-	let {explanation} = $props();
+	let { explanation } = $props();
 </script>
 
 <section>
@@ -8,6 +8,9 @@
 </section>
 
 <style>
+	section {
+		margin-bottom: 3rem;
+	}
 	section p {
 		max-width: 40rem;
 	}

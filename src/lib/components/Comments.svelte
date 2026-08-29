@@ -4,7 +4,7 @@
 </script>
 
 <section>
-	<h3>Comments:</h3>
+	<h2>Comments:</h2>
 	{#if !hasMessage}
 		<p>No comments yet, be the first to leave a comment! 🛸</p>
 	{/if}
@@ -14,7 +14,7 @@
 				<!-- Check which comments belong to current apod photo -->
 				{#if apodDate === message.date}
 					<li>
-                        <h4>{message.name}<span>{message.today}</span></h4>
+                        <h3>{message.name}<span>{message.today}</span></h3>
                         <p>{message.message}</p>
 					</li>
 				{/if}
@@ -24,15 +24,13 @@
 </section>
 
 <style>
-	h3 {
-		font-size: 1.5rem;
-	}
-    h4 {
+    h3 {
 		margin: 0 0 auto 0;
 		display: flex;
 		justify-content: space-between;
         gap:1rem;
         & span {
+            font-size:1rem;
             font-weight: 400;
         }
 	}
