@@ -41,6 +41,7 @@
 	}
 	figcaption {
 		text-align: start;
+		color: var(--text);
 	}
 	[popovertarget='image-popover'] {
 		padding: 0;

@@ -8,8 +8,10 @@
 <style>
 	h1 {
 		margin-bottom: 0.5rem;
+		color: var(--text);
 	}
 	p {
 		margin-top: 0.5rem;
+		color: var(--text);
 	}
 </style>

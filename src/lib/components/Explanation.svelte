@@ -10,6 +10,7 @@
 <style>
 	section {
 		margin-bottom: 3rem;
+		color: var(--text);
 	}
 	section p {
 		max-width: 40rem;

@@ -24,6 +24,9 @@
 </section>
 
 <style>
+	section {
+		color: var(--text);
+	}
     h3 {
 		margin: 0 0 auto 0;
 		display: flex;

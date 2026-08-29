@@ -43,6 +43,7 @@
 <style>
 	section {
 		margin-bottom: 3rem;
+		color: var(--text);
 	}
 	h3 {
 		margin-bottom: 0.5rem;

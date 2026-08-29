@@ -77,31 +77,8 @@
 		overflow: hidden;
 		background-color: black;
 	}
-	.image-popover:hover {
-		cursor: pointer;
-	}
-	.popover-close {
-		position: absolute;
-		width: fit-content;
-		height: fit-content;
-		color: white;
-		right: 0rem;
-		font-size: 1.5rem;
-	}
-	.popover-close:hover {
-		cursor: pointer;
-	}
-	.popover-not-working {
-		display: none;
-	}
-	.copyright {
-		color: #fcf6bd;
-		position: relative;
-		top: -4rem;
-		left: 0.5rem;
-		width: fit-content;
-		background-color: rgba(0, 0, 0, 0.8);
-	}
+
+
 
 
 
@@ -110,18 +87,11 @@
 
 	/* mediaqueries */
 
-	/* 368px is 23 em */
-	@media screen and (min-width: 23em) {
-		.day-picker {
-			margin-right: 0.5rem;
-			padding: 0.3rem 0;
-			font-size: 1rem;
-		}
-	}
 
-	/* 800px is 50em */
 
-	@media screen and (min-width: 50em) {
+	/* 768px is 48em */
+
+	@media screen and (min-width: 48em) {
 		main {
 			display: flex;
 			margin-right: 0;
@@ -136,20 +106,7 @@
 			padding: 0;
 			font-size: 1.3rem;
 		}
-		.right-desktop {
-			width: 35%;
-			padding: 1rem;
-			background-color: #168aad;
-		}
-
-		.comments {
-			height: 100%;
-			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
-			padding: 0;
-			background-color: #168aad;
-		}
+		
 
 		/* image */
 		.image-container,
