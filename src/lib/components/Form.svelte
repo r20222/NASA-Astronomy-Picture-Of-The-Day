@@ -10,7 +10,8 @@
 	<h3>Add your comment:</h3>
 	<form action="/?day={apodDate}" method="post" use:enhance>
 		<fieldset>
-			<label for="Name">Name:
+			<label for="Name"
+				>Name:
 				<input
 					name="Name"
 					id="Name"
@@ -21,7 +22,8 @@
 				/>
 			</label>
 
-			<label for="Message">Message:
+			<label for="Message"
+				>Message:
 				<input
 					name="Message"
 					id="Message"
@@ -32,15 +34,18 @@
 				/>
 			</label>
 
-            <!-- Loader toevoegen -->
+			<!-- Loader toevoegen -->
 			<input type="submit" value="Send Message 🛰️" />
 		</fieldset>
 	</form>
 </section>
 
 <style>
+	section {
+		margin-bottom: 3rem;
+	}
 	h3 {
-        margin-bottom:.5rem;
+		margin-bottom: 0.5rem;
 		font-size: 1.5rem;
 	}
 	fieldset {
@@ -48,7 +53,7 @@
 		padding: 0;
 		display: flex;
 		flex-direction: column;
-		gap: .7rem;
+		gap: 0.7rem;
 		border: none;
 	}
 	label {
@@ -61,19 +66,20 @@
 		border-radius: 1rem;
 		border: 1px solid var(--dark-blue);
 	}
-    input[type="submit"]{
-        display:block;
-        margin-left:auto;
-        padding:.7rem 2rem;
-        background-color: var(--dark-blue);
-        color: var(--vanilla);
-        font-weight:600;
-        letter-spacing:.1rem;
-        border-radius: 1rem;
-        border: none;
-        &:hover, &:focus{
-            cursor:pointer;
-            background-color: var(--darker-blue);
-        }
-    }
+	input[type='submit'] {
+		display: block;
+		margin-left: auto;
+		padding: 0.7rem 2rem;
+		background-color: var(--dark-blue);
+		color: var(--vanilla);
+		font-weight: 600;
+		letter-spacing: 0.1rem;
+		border-radius: 1rem;
+		border: none;
+		&:hover,
+		&:focus {
+			cursor: pointer;
+			background-color: var(--darker-blue);
+		}
+	}
 </style>

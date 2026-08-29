@@ -16,4 +16,13 @@
 	span{
 		display:block;
 	}
+	a {
+		color: var(--dark-blue);
+		text-decoration: underline var(--dark-blue);
+
+		&:hover, &:focus {
+			color: var(--darker-blue);
+			text-decoration: underline var(--text);
+		}
+	}
 </style>
