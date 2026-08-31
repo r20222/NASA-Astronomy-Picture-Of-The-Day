@@ -1,23 +1,39 @@
 <script>
-	let { url, hdurl, copyright } = $props();
+	let { url, mediatype, hdurl, copyright } = $props();
+
+	// Omzetten naar media_type
+	// const isVideo = url.toLowerCase().endsWith('.mp4');
+	// const isPhoto = /\.(jpg|jpeg|png|gif|webp)$/i.test(url);
+	// console.log(isPhoto, isVideo);
 </script>
 
 <div class="image-container">
 	<button popovertarget="image-popover">
-		<figure>
-			<img src={url} alt="" width="300" height="300" />
-			{#if copyright}
-				<figcaption>
-					&#169; {copyright}
-				</figcaption>
-			{/if}
-		</figure>
+		{#if mediatype === "video"}
+			<video width="300" height="300" controls>
+				<source src={url} type="video/mp4" />
+			</video>
+		{:else if mediatype === "image"}
+			<figure>
+				<img src={url} alt="" width="300" height="300" />
+				{#if copyright}
+					<figcaption>
+						&#169; {copyright}
+					</figcaption>
+				{/if}
+			</figure>
+		{/if}
 	</button>
 
 	<div class="img-popover-container" id="image-popover" popover>
 		<button class="popover-close" popovertarget="image-popover" popovertargetaction="hide">
 			Close &#10006;
 		</button>
+		{#if mediatype === "video"}
+			<video width="300" height="300" controls>
+				<source src={url} type="video/mp4" />
+			</video>
+		{:else if mediatype === "image"}
 		<figure>
 			<img src={hdurl} alt="" width="300" height="300" />
 			{#if copyright}
@@ -26,6 +42,7 @@
 				</figcaption>
 			{/if}
 		</figure>
+		{/if}
 	</div>
 </div>
 

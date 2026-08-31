@@ -36,9 +36,8 @@
 		margin-bottom: 3rem;
 		height: calc(100% - 4.5rem);
 		color: var(--text);
-		overflow: auto;
+		overflow-y: auto;
 	}
-
 	ul {
 		position: absolute;
 		height: 100%;

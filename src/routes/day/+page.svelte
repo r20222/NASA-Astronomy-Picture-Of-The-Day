@@ -27,6 +27,7 @@
 	<Title title={data.dataApod.title} date={formattedDateApodPhoto} />
 	<Popover
 		url={data.dataApod.url}
+		mediatype={data.dataApod.media_type}
 		hdurl={data.dataApod.hdurl}
 		copyright={data.dataApod.copyright}
 	/>
