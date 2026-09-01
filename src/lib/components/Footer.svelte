@@ -26,4 +26,9 @@
 			text-decoration: underline var(--text);
 		}
 	}
+	@media screen and (min-width: 64em) {
+			footer {
+				padding: 1rem 4rem;
+			}
+	}
 </style>

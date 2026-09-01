@@ -75,7 +75,7 @@
 	@media screen and (min-width: 48em) {
 		main {
 			display: grid;
-			column-gap: 1rem;
+			column-gap: 3rem;
 			grid-template-columns:  minmax(0, 3fr) minmax(0, 2fr);
 			grid-template-areas:
 				'title       title'

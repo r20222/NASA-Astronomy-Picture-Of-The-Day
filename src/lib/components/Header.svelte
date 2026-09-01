@@ -19,4 +19,9 @@
 		font-weight: 600;
 		text-decoration: none;
 	}
+	@media screen and (min-width: 64em) {
+			header {
+				padding: 1rem 4rem;
+			}
+	}
 </style>

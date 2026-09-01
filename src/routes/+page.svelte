@@ -39,7 +39,7 @@
 
 <style>
 	main {
-		margin: 0 1rem 0 1rem;
+		margin: 0 1rem;
 	}
 
 	/* mediaqueries */
@@ -47,9 +47,8 @@
 	@media screen and (min-width: 48em) {
 		main {
 			display: grid;
-			/* grid-template-columns: 3fr 2fr; */
 			grid-template-columns:  minmax(0, 3fr) minmax(0, 2fr);
-			column-gap: 1rem;
+			column-gap: 3rem;
 			grid-template-areas:
 				'title       title'
 				'popover     search'
@@ -58,29 +57,10 @@
 				'explanation form'
 				'footer 	 footer';
 		}
-
-		.day-picker {
-			margin-right: 0.5rem;
-			padding: 0;
-			font-size: 1.3rem;
-		}
-
-		.explanation p {
-			max-width: 40rem;
-		}
-		/* .comments {
-			height: 100%;
-			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
-			padding: 0;
-			background-color: #168aad;
-		} */
-
-		/* image */
-		.image-container,
-		button {
-			height: 28rem;
-		}
+	}
+	@media screen and (min-width: 64em) {
+			main {
+				margin: 0 4rem;
+			}
 	}
 </style>
