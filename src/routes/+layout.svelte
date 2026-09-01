@@ -8,6 +8,11 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
+	<title>Nasa Astronomy Picture Of The Day</title>
+	<meta
+        name="description"
+        content="Discover the Astronomy Picture of the Day from NASA."
+    />
 </svelte:head>
 
 <Header />
@@ -21,22 +26,42 @@
 
 	/* ik wil nog een dark mode */
 	:root {
-		--header: #00b4d8;
-		--header-hover-color: white;
-		--header-underline-hover: hotpink;
-		--input-background-color: #fcf6bd;
-		--input-color: black;
+		--vanilla: #FCF6BD;
+		--not-white: #FFFBD3;
+		--dark-blue: #044356;
+		--darker-blue: #042b38;
+		--text: #222222;
+		--black: var(--black);
 	}
 	:global(body) {
 		font-family: 'Space Grotesk', sans-serif;
-		background-color: #a9def9;
+		background-color: var(--vanilla);
 		margin: 0rem;
 	}
 
+	:global(main) {
+		margin: 0 1rem ;
+	}
 
+	/* mediaqueries */
 
-
-/* Nog goed uitzoeken */
-
-
+	@media screen and (min-width: 48em) {
+		:global(main) {
+			display: grid;
+			grid-template-columns:  minmax(0, 3fr) minmax(0, 2fr);
+			column-gap: 3rem;
+			grid-template-areas:
+				'title       title'
+				'popover     search'
+				'popover     comments'
+				'explanation comments'
+				'explanation form'
+				'footer 	 footer';
+		}
+	}
+	@media screen and (min-width: 64em) {
+			:global(main) {
+				margin: 0 4rem;
+			}
+	}
 </style>
