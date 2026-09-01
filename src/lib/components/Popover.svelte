@@ -3,12 +3,12 @@
 </script>
 
 <div class="image-container">
-	<button class="popover-open-button" popovertarget="image-popover">
-		{#if mediatype === 'video'}
-			<video width="300" height="300" controls>
-				<source src={url} type="video/mp4" />
-			</video>
-		{:else if mediatype === 'image'}
+	{#if mediatype === 'video'}
+		<video width="300" height="300" controls>
+			<source src={url} type="video/mp4" />
+		</video>
+	{:else if mediatype === 'image'}
+		<button class="popover-open-button" popovertarget="image-popover">
 			<figure>
 				<img src={url} alt="" width="300" height="300" />
 				{#if copyright}
@@ -17,18 +17,15 @@
 					</figcaption>
 				{/if}
 			</figure>
-		{/if}
-	</button>
-
-	<div class="img-popover-container" id="image-popover" popover>
-		<button class="popover-close" popovertarget="image-popover" popovertargetaction="hide">
-			Close &#10006;
 		</button>
-		{#if mediatype === 'video'}
-			<video width="300" height="300" controls>
-				<source src={url} type="video/mp4" />
-			</video>
-		{:else if mediatype === 'image'}
+	{/if}
+
+	{#if mediatype === 'image'}
+		<div class="img-popover-container" id="image-popover" popover>
+			<button class="popover-close" popovertarget="image-popover" popovertargetaction="hide">
+				Close &#10006;
+			</button>
+
 			<figure>
 				<img src={hdurl} alt="" width="300" height="300" />
 				{#if copyright}
@@ -37,8 +34,8 @@
 					</figcaption>
 				{/if}
 			</figure>
-		{/if}
-	</div>
+		</div>
+	{/if}
 </div>
 
 <style>
@@ -49,7 +46,8 @@
 		margin: 0;
 		border-radius: 1rem;
 	}
-	img {
+	img,
+	video {
 		width: 100%;
 		height: 100%;
 		border-radius: 1rem;
@@ -64,7 +62,7 @@
 		cursor: pointer;
 		background-color: var(--vanilla);
 		&:focus {
-			 box-shadow: 0 0 0 4px var(--dark-blue);
+			box-shadow: 0 0 0 4px var(--dark-blue);
 		}
 	}
 	[popover] {
