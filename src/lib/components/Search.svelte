@@ -7,24 +7,30 @@
 	let { value, max } = $props();
 </script>
 
-<form action="/day" method="get">
-	<label for="day">Pick a day:</label>
-	<input type="date" id="day" name="day" {value} min="1995-06-16" {max} />
-	<button type="submit">
-		{#if loading}
-			Search 🚀
-            <span class="spinner" aria-hidden="true"></span>
-		{:else}
-			Search 🚀
-		{/if}
-	</button>
-</form>
+<div>
+	<form action="/day" method="get">
+		<label for="day">Pick a day:</label>
+		<input type="date" id="day" name="day" {value} min="1995-06-16" {max} />
+		<button type="submit">
+			{#if loading}
+				Search 🚀
+				<span class="spinner" aria-hidden="true"></span>
+			{:else}
+				Search 🚀
+			{/if}
+		</button>
+	</form>
+
+	<button class="random"> Pick a random day </button>
+</div>
 
 <style>
+	div {
+		grid-area: search;
+	}
 	form {
 		display: grid;
 		max-width: 20rem;
-		grid-area: search;
 		grid-template-columns: 1fr 1fr;
 	}
 	label {
@@ -61,6 +67,16 @@
 		&:focus {
 			cursor: pointer;
 			background-color: var(--darker-blue);
+		}
+	}
+	button.random {
+		display:block;
+		grid-column: 1 / -1;
+	}
+
+	@media screen and (min-width: 48em) {
+		form {
+			max-width: 100%;
 		}
 	}
 </style>
