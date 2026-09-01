@@ -9,6 +9,10 @@
 <svelte:head>
 	<link rel="icon" href={favicon} />
 	<title>Nasa Astronomy Picture Of The Day</title>
+	<meta
+        name="description"
+        content="Discover the Astronomy Picture of the Day from NASA."
+    />
 </svelte:head>
 
 <Header />

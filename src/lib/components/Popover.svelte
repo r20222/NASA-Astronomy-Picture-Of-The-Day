@@ -8,7 +8,7 @@
 			<source src={url} type="video/mp4" />
 		</video>
 	{:else if mediatype === 'image'}
-		<button class="popover-open-button" popovertarget="image-popover">
+		<button title="Open popover" class="popover-open-button" popovertarget="image-popover">
 			<figure>
 				<img src={url} alt="" width="300" height="300" />
 				{#if copyright}
@@ -22,7 +22,7 @@
 
 	{#if mediatype === 'image'}
 		<div class="img-popover-container" id="image-popover" popover>
-			<button class="popover-close" popovertarget="image-popover" popovertargetaction="hide">
+			<button class="popover-close" title="Close popover" popovertarget="image-popover" popovertargetaction="hide">
 				Close &#10006;
 			</button>
 
