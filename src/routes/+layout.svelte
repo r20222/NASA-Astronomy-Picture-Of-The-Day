@@ -27,11 +27,36 @@
 		--darker-blue: #042b38;
 		--text: #222222;
 		--black: var(--black);
-		/* --input-color: black; */
 	}
 	:global(body) {
 		font-family: 'Space Grotesk', sans-serif;
 		background-color: var(--vanilla);
 		margin: 0rem;
+	}
+
+	:global(main) {
+		margin: 0 1rem ;
+	}
+
+	/* mediaqueries */
+
+	@media screen and (min-width: 48em) {
+		:global(main) {
+			display: grid;
+			grid-template-columns:  minmax(0, 3fr) minmax(0, 2fr);
+			column-gap: 3rem;
+			grid-template-areas:
+				'title       title'
+				'popover     search'
+				'popover     comments'
+				'explanation comments'
+				'explanation form'
+				'footer 	 footer';
+		}
+	}
+	@media screen and (min-width: 64em) {
+			:global(main) {
+				margin: 0 4rem;
+			}
 	}
 </style>

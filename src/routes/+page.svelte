@@ -36,31 +36,3 @@
 	<Comments messages={data.dataHygraph.messages} apodDate={data.dataApod.date} />
 	<Form apodDate={data.dataApod.date} />
 </main>
-
-<style>
-	main {
-		margin: 0 1rem;
-	}
-
-	/* mediaqueries */
-
-	@media screen and (min-width: 48em) {
-		main {
-			display: grid;
-			grid-template-columns:  minmax(0, 3fr) minmax(0, 2fr);
-			column-gap: 3rem;
-			grid-template-areas:
-				'title       title'
-				'popover     search'
-				'popover     comments'
-				'explanation comments'
-				'explanation form'
-				'footer 	 footer';
-		}
-	}
-	@media screen and (min-width: 64em) {
-			main {
-				margin: 0 4rem;
-			}
-	}
-</style>
