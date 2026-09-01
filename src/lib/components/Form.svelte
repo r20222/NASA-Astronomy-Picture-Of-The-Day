@@ -4,11 +4,22 @@
 	import { enhance } from '$app/forms';
 
 	let { apodDate } = $props();
+	// When loading, you see the spinner on the button
+	let loading = $state(false);
+
+	function handleSubmit() {
+		loading = true;
+
+		return async ({ update }) => {
+			await update();
+			loading = false;
+		};
+	}
 </script>
 
 <section>
 	<h3>Add your comment:</h3>
-	<form action="/?day={apodDate}" method="post" use:enhance>
+	<form action="/?day={apodDate}" method="post" use:enhance={handleSubmit}>
 		<fieldset>
 			<label for="Name"
 				>Name:
@@ -33,9 +44,14 @@
 					required
 				/>
 			</label>
-
-			<!-- Loader toevoegen -->
-			<input type="submit" value="Send Message 🛰️" />
+			<button type="submit">
+				{#if loading}
+					Send Message 🛰️
+					<span class="spinner" aria-hidden="true"></span>
+				{:else}
+					Send Message 🛰️
+				{/if}
+			</button>
 		</fieldset>
 	</form>
 </section>
@@ -68,10 +84,10 @@
 		border-radius: 1rem;
 		border: 1px solid var(--dark-blue);
 	}
-	input[type='submit'] {
+	button[type='submit'] {
 		display: block;
 		margin-left: auto;
-		padding: 0.7rem 2rem;
+		padding: 0.7rem 3rem;
 		background-color: var(--dark-blue);
 		color: var(--vanilla);
 		font-weight: 600;

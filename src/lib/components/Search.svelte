@@ -1,6 +1,7 @@
 <script>
 	import { navigating } from '$app/state';
 
+	// When the page is navigating you will see the spinner
 	let loading = $derived(navigating.to !== null);
 
 	let { value, max } = $props();
@@ -60,25 +61,6 @@
 		&:focus {
 			cursor: pointer;
 			background-color: var(--darker-blue);
-		}
-	}
-	.spinner {
-        margin-left:.5rem;
-		width: 1.1rem;
-		height: 1.1rem;
-		border: 4px dotted var(--vanilla);
-		border-radius: 50%;
-		position: absolute;
-		box-sizing: border-box;
-		animation: rotation 2s linear infinite;
-	}
-
-	@keyframes rotation {
-		0% {
-			transform: rotate(0deg);
-		}
-		100% {
-			transform: rotate(360deg);
 		}
 	}
 </style>
