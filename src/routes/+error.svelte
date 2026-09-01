@@ -22,4 +22,9 @@
 			text-decoration: underline var(--text);
 		}
 	}
+	@media screen and (min-width: 64em) {
+			section {
+				margin: 1rem 4rem;
+			}
+	}
 </style>

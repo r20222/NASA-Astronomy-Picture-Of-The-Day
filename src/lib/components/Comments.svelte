@@ -40,7 +40,6 @@
 	}
 	ul {
 		position: absolute;
-		height: 100%;
 		inset: 0;
 		padding-left: 0;
 		list-style: none;

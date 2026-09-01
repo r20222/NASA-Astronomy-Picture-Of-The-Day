@@ -8,6 +8,7 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
+	<title>Nasa Astronomy Picture Of The Day</title>
 </svelte:head>
 
 <Header />
