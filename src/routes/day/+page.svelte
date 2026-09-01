@@ -76,6 +76,7 @@
 		main {
 			display: grid;
 			column-gap: 1rem;
+			grid-template-columns:  minmax(0, 3fr) minmax(0, 2fr);
 			grid-template-areas:
 				'title       title'
 				'popover     search'

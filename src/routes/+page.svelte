@@ -20,7 +20,6 @@
 			year: 'numeric'
 		})
 	);
-	console.log(data.dataApod.media_type)
 </script>
 
 <main>
@@ -48,7 +47,8 @@
 	@media screen and (min-width: 48em) {
 		main {
 			display: grid;
-			grid-template-columns: 3fr 2fr;
+			/* grid-template-columns: 3fr 2fr; */
+			grid-template-columns:  minmax(0, 3fr) minmax(0, 2fr);
 			column-gap: 1rem;
 			grid-template-areas:
 				'title       title'

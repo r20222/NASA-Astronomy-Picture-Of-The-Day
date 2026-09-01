@@ -1,19 +1,14 @@
 <script>
 	let { url, mediatype, hdurl, copyright } = $props();
-
-	// Omzetten naar media_type
-	// const isVideo = url.toLowerCase().endsWith('.mp4');
-	// const isPhoto = /\.(jpg|jpeg|png|gif|webp)$/i.test(url);
-	// console.log(isPhoto, isVideo);
 </script>
 
 <div class="image-container">
-	<button popovertarget="image-popover">
-		{#if mediatype === "video"}
+	<button class="popover-open-button" popovertarget="image-popover">
+		{#if mediatype === 'video'}
 			<video width="300" height="300" controls>
 				<source src={url} type="video/mp4" />
 			</video>
-		{:else if mediatype === "image"}
+		{:else if mediatype === 'image'}
 			<figure>
 				<img src={url} alt="" width="300" height="300" />
 				{#if copyright}
@@ -29,19 +24,19 @@
 		<button class="popover-close" popovertarget="image-popover" popovertargetaction="hide">
 			Close &#10006;
 		</button>
-		{#if mediatype === "video"}
+		{#if mediatype === 'video'}
 			<video width="300" height="300" controls>
 				<source src={url} type="video/mp4" />
 			</video>
-		{:else if mediatype === "image"}
-		<figure>
-			<img src={hdurl} alt="" width="300" height="300" />
-			{#if copyright}
-				<figcaption>
-					&#169; {copyright}
-				</figcaption>
-			{/if}
-		</figure>
+		{:else if mediatype === 'image'}
+			<figure>
+				<img src={hdurl} alt="" width="300" height="300" />
+				{#if copyright}
+					<figcaption>
+						&#169; {copyright}
+					</figcaption>
+				{/if}
+			</figure>
 		{/if}
 	</div>
 </div>
@@ -63,19 +58,22 @@
 		text-align: start;
 		color: var(--text);
 	}
-	[popovertarget='image-popover'] {
+	.popover-open-button {
 		padding: 0;
 		border: none;
 		cursor: pointer;
 		background-color: var(--vanilla);
+		&:focus {
+			 box-shadow: 0 0 0 4px var(--dark-blue);
+		}
 	}
 	[popover] {
-		width: 95%;
-		height: 95%;
+		box-sizing: border-box;
+		padding: 1rem;
+		width: 97vw;
+		height: 97vh;
 		border-radius: 1rem;
 		border: solid 1px var(--dark-blue);
-		object-fit: contain;
-		overflow: hidden;
 		background-color: var(--not-white);
 		& img {
 			margin: 1rem 0;
@@ -87,7 +85,6 @@
 	.popover-close {
 		display: block;
 		margin-left: auto;
-		margin-top: calc(1rem - 4px);
 		padding: 0.5rem 1rem;
 		background-color: var(--dark-blue);
 		color: var(--vanilla);
@@ -103,61 +100,37 @@
 	}
 
 	@media screen and (min-width: 48em) {
-		/* .image-container {
-			background-color: pink;
-		} */
-		[popovertarget='image-popover'] {
+		.popover-open-button {
 			position: relative;
 			width: 100%;
 			background-color: black;
 			object-fit: contain;
 			border-radius: 1rem;
 		}
-		figure {
-			/* width:100%; */
-			/* background-color: green; */
-			/* display: flex;
-			flex-direction: column; */
-			/* align-items: center; */
-			/* justify-content: center; */
+		figcaption {
+			padding: 0 1rem 1rem;
+			text-align: start;
+			color: var(--vanilla);
 		}
 		img {
 			width: 100%;
 			height: 27rem;
 			object-fit: contain;
 		}
-		/* .image-container,
-		button {
-			position:relative;
-			width: 100%;
-			height: 20rem;
-			overflow: hidden;
-			background-color: black;
-			border: none;
-		} */
-		/* .image-container img {
-			width: 100%;
-			height: 100%;
-			object-fit: contain;
-			cursor: pointer;
-		}
-
 		.img-popover-container {
-			width: 95%;
-			height: 95%;
-			object-fit: contain;
-			overflow: hidden;
-			background-color: black;
-		} */
+			& img {
+				display: block;
+				margin-inline: auto;
+				width: auto;
+				height: auto;
+				max-width: 100%;
+				max-height: 77vh;
+				object-fit: contain;
+				border-radius: 1rem;
+			}
+			& figcaption {
+				color: var(--text);
+			}
+		}
 	}
-	/* .img-popover-container {
-	}
-
-
-	.popover-close:hover {
-		cursor: pointer;
-	}
-	.popover-not-working {
-		display: none;
-	}  */
 </style>
