@@ -5,6 +5,33 @@
 	let loading = $derived(navigating.to !== null);
 
 	let { value, max } = $props();
+
+	function pickRandomDay() {
+		const minDate = new Date('1995-06-16');
+		const maxDate = new Date();
+
+		// Calculate the amount of miliseconds have past between min and max date
+		const difference = maxDate - minDate;
+
+		// calculate how many miliseconds fit in one day
+		const millisecondsPerDay = 1000 * 60 * 60 * 24;
+
+		// calculate how many days have passed
+		const days = Math.floor(difference / millisecondsPerDay);
+		console.log(days);
+
+		// Give a random number that fits in the amount of days
+		const randomDays = Math.floor(Math.random() * days);
+
+		// Count randomDays up from minDate to get a random Date!
+		const randomDate = new Date(minDate);
+		randomDate.setDate(randomDate.getDate() + randomDays);
+
+		// Correct date format
+		const dateString = randomDate.toISOString().split("T")[0];
+
+		window.location.href = `/day?day=${dateString}`;
+	}
 </script>
 
 <div>
@@ -21,14 +48,14 @@
 		</button>
 	</form>
 
-	<button class="random"> Pick a random day 🌌</button>
+	<button class="random" onclick={pickRandomDay}> Pick a random day 🌌</button>
 </div>
 
 <style>
 	div {
 		display: grid;
 		grid-area: search;
-		gap:.5rem;
+		gap: 0.5rem;
 	}
 	form {
 		display: grid;
@@ -73,7 +100,7 @@
 	}
 	button.random {
 		padding: 0.5rem 1rem;
-		width:100%;
+		width: 100%;
 		max-width: 20rem;
 		background-color: var(--dark-blue);
 		color: var(--vanilla);
@@ -89,7 +116,8 @@
 	}
 
 	@media screen and (min-width: 48em) {
-		form, button.random {
+		form,
+		button.random {
 			max-width: 100%;
 		}
 	}
