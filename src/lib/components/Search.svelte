@@ -5,26 +5,61 @@
 	let loading = $derived(navigating.to !== null);
 
 	let { value, max } = $props();
+
+	function pickRandomDay() {
+		const minDate = new Date('1995-06-16');
+		const maxDate = new Date();
+
+		// Calculate the amount of miliseconds have past between min and max date
+		const difference = maxDate - minDate;
+
+		// calculate how many miliseconds fit in one day
+		const millisecondsPerDay = 1000 * 60 * 60 * 24;
+
+		// calculate how many days have passed
+		const days = Math.floor(difference / millisecondsPerDay);
+		console.log(days);
+
+		// Give a random number that fits in the amount of days
+		const randomDays = Math.floor(Math.random() * days);
+
+		// Count randomDays up from minDate to get a random Date!
+		const randomDate = new Date(minDate);
+		randomDate.setDate(randomDate.getDate() + randomDays);
+
+		// Correct date format
+		const dateString = randomDate.toISOString().split("T")[0];
+
+		window.location.href = `/day?day=${dateString}`;
+	}
 </script>
 
-<form action="/day" method="get">
-	<label for="day">Pick a day:</label>
-	<input type="date" id="day" name="day" {value} min="1995-06-16" {max} />
-	<button type="submit">
-		{#if loading}
-			Search 🚀
-            <span class="spinner" aria-hidden="true"></span>
-		{:else}
-			Search 🚀
-		{/if}
-	</button>
-</form>
+<div>
+	<form action="/day" method="get">
+		<label for="day">Pick a day:</label>
+		<input type="date" id="day" name="day" {value} min="1995-06-16" {max} />
+		<button type="submit">
+			{#if loading}
+				Search 🚀
+				<span class="spinner" aria-hidden="true"></span>
+			{:else}
+				Search 🚀
+			{/if}
+		</button>
+	</form>
+
+	<button class="random" onclick={pickRandomDay}> Pick a random day 🌌</button>
+</div>
 
 <style>
+	div {
+		display: grid;
+		grid-area: search;
+		gap: 0.5rem;
+	}
 	form {
 		display: grid;
 		max-width: 20rem;
-		grid-area: search;
 		grid-template-columns: 1fr 1fr;
 	}
 	label {
@@ -61,6 +96,29 @@
 		&:focus {
 			cursor: pointer;
 			background-color: var(--darker-blue);
+		}
+	}
+	button.random {
+		padding: 0.5rem 1rem;
+		width: 100%;
+		max-width: 20rem;
+		background-color: var(--dark-blue);
+		color: var(--vanilla);
+		font-weight: 600;
+		letter-spacing: 0.1rem;
+		border-radius: 1rem;
+		border: none;
+		&:hover,
+		&:focus {
+			cursor: pointer;
+			background-color: var(--darker-blue);
+		}
+	}
+
+	@media screen and (min-width: 48em) {
+		form,
+		button.random {
+			max-width: 100%;
 		}
 	}
 </style>

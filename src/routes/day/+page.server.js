@@ -1,6 +1,7 @@
 import { APOD_KEY } from '$env/static/private';
 import { createMessage } from '$lib/server/hygraph';
 
+// Get Apod photo and data of a specific day
 export async function load({ url }) {
     const day = url.searchParams.get('day');
 
@@ -25,6 +26,7 @@ export async function load({ url }) {
     };
 }
 
+// Post message to Hygraph
 export const actions = {
     default: async ({ request, url }) => {
         const formData = await request.formData();
