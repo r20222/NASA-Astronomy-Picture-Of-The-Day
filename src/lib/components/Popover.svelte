@@ -3,9 +3,12 @@
 </script>
 
 <div class="image-container">
-	{#if mediatype === 'video'}
+	{#if url.includes('youtube.com') || url.includes('youtu.be')}
+		<iframe width="300" height="300" src={url} title="YouTube video" allowfullscreen></iframe>
+	{:else if mediatype === 'video'}
 		<video width="300" height="300" controls>
 			<source src={url} type="video/mp4" />
+			Je browser ondersteunt geen video.
 		</video>
 	{:else if mediatype === 'image'}
 		<button title="Open popover" class="popover-open-button" popovertarget="image-popover">
@@ -22,7 +25,12 @@
 
 	{#if mediatype === 'image'}
 		<div class="img-popover-container" id="image-popover" popover>
-			<button class="popover-close" title="Close popover" popovertarget="image-popover" popovertargetaction="hide">
+			<button
+				class="popover-close"
+				title="Close popover"
+				popovertarget="image-popover"
+				popovertargetaction="hide"
+			>
 				Close &#10006;
 			</button>
 
@@ -47,7 +55,8 @@
 		border-radius: 1rem;
 	}
 	img,
-	video {
+	video,
+	iframe {
 		width: 100%;
 		height: 100%;
 		border-radius: 1rem;
