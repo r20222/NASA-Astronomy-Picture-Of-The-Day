@@ -21,12 +21,14 @@
 		</button>
 	</form>
 
-	<button class="random"> Pick a random day </button>
+	<button class="random"> Pick a random day 🌌</button>
 </div>
 
 <style>
 	div {
+		display: grid;
 		grid-area: search;
+		gap:.5rem;
 	}
 	form {
 		display: grid;
@@ -70,12 +72,24 @@
 		}
 	}
 	button.random {
-		display:block;
-		grid-column: 1 / -1;
+		padding: 0.5rem 1rem;
+		width:100%;
+		max-width: 20rem;
+		background-color: var(--dark-blue);
+		color: var(--vanilla);
+		font-weight: 600;
+		letter-spacing: 0.1rem;
+		border-radius: 1rem;
+		border: none;
+		&:hover,
+		&:focus {
+			cursor: pointer;
+			background-color: var(--darker-blue);
+		}
 	}
 
 	@media screen and (min-width: 48em) {
-		form {
+		form, button.random {
 			max-width: 100%;
 		}
 	}
