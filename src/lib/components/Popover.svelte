@@ -16,12 +16,11 @@
 				<img src={url} alt="" width="300" height="300" />
 				{#if copyright}
 					<figcaption>
-						&#169; {copyright} 
+						&#169; {copyright}
 						<span>⛶ Click to open popover</span>
 					</figcaption>
 				{/if}
 			</figure>
-			
 		</button>
 	{/if}
 
@@ -55,6 +54,7 @@
 	figure {
 		margin: 0;
 		border-radius: 1rem;
+		overflow: hidden;
 	}
 	img,
 	video,
@@ -63,12 +63,16 @@
 		height: 100%;
 		border-radius: 1rem;
 	}
+	img {
+		transition: transform .3s;
+	}
+
 	figcaption {
 		text-align: start;
 		color: var(--text);
 	}
-	figcaption:has(span){
-		display:flex;
+	figcaption:has(span) {
+		display: flex;
 		justify-content: space-between;
 		align-items: end;
 	}
@@ -79,6 +83,11 @@
 		background-color: var(--vanilla);
 		&:focus {
 			box-shadow: 0 0 0 4px var(--dark-blue);
+		}
+		&:hover {
+			img {
+				transform: scale(1.05);
+			}
 		}
 	}
 	[popover] {
