@@ -3,10 +3,11 @@
 
 	// When the page is navigating you will see the spinner
 	let loading = $derived(navigating.to !== null);
-
+	let loadingRandom = $state(false);
 	let { value, max } = $props();
 
 	function pickRandomDay() {
+		loadingRandom = true;
 		const minDate = new Date('1995-06-16');
 		const maxDate = new Date();
 
@@ -28,7 +29,7 @@
 		randomDate.setDate(randomDate.getDate() + randomDays);
 
 		// Correct date format
-		const dateString = randomDate.toISOString().split("T")[0];
+		const dateString = randomDate.toISOString().split('T')[0];
 
 		window.location.href = `/day?day=${dateString}`;
 	}
@@ -48,7 +49,14 @@
 		</button>
 	</form>
 
-	<button class="random" onclick={pickRandomDay}> Pick a random day 🌌</button>
+	<button class="random" onclick={pickRandomDay}>
+		{#if loadingRandom}
+			Pick a random day 🌌
+			<span class="spinner" aria-hidden="true"></span>
+		{:else}
+			Pick a random day 🌌
+		{/if}
+	</button>
 </div>
 
 <style>
@@ -59,7 +67,7 @@
 	}
 	form {
 		display: grid;
-		max-width: 20rem;
+		max-width: 25rem;
 		grid-template-columns: 1fr 1fr;
 	}
 	label {
@@ -101,7 +109,7 @@
 	button.random {
 		padding: 0.5rem 1rem;
 		width: 100%;
-		max-width: 20rem;
+		max-width: 25rem;
 		background-color: var(--dark-blue);
 		color: var(--vanilla);
 		font-weight: 600;
