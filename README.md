@@ -1,3 +1,42 @@
+# Nasa Astronomy Picture Of The Day
+
+This projects, created with Sveltekit and Svelte, showcases beautiful pictures and video's from the Nasa Astronomy Picture Of The Day. 
+I created this project 3 years ago with EJS, and I decided it was time to give it a new design and make some much needed changes. I invite you to take a look and leave a comment.
+
+<img width="1871" height="882" alt="image" src="https://github.com/user-attachments/assets/a93db2ab-24e4-4b52-b057-fa339d51d6a1" />
+
+
+
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [API](#api)
+- [Contributing](#contributing)
+- [License](#license)
+
+
+## Features
+
+[x] Display APOD images/videos
+[x] View APOD image/video details
+[x] Responsive design (Mobile, Tablet, Desktop)
+[ ] Dark mode support
+[x] Leave comments on APOD images/videos
+[x] Search APOD by date
+[x] Display a random APOD image/video
+
+
+## Tech stack 🛠️
+
+[x] HTML
+[x] CSS
+[x] JavaScript
+[x] Sveltekit/Svelte
+[x] Node.js
+[x] npm
+[x] Rest API - NASA APOD
+[x] GraphQL - Hygraph
+
 # sv
 
 Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
