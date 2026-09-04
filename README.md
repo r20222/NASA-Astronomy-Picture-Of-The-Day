@@ -17,25 +17,25 @@ I created this project 3 years ago with EJS, and I decided it was time to give i
 
 ## Features
 
-[x] Display APOD images/videos
-[x] View APOD image/video details
-[x] Responsive design (Mobile, Tablet, Desktop)
-[ ] Dark mode support
-[x] Leave comments on APOD images/videos
-[x] Search APOD by date
-[x] Display a random APOD image/video
+* [x] Display APOD images/videos
+* [x] View APOD image/video details
+* [x] Responsive design (Mobile, Tablet, Desktop)
+* [ ] Dark mode support
+* [x] Leave comments on APOD images/videos
+* [x] Search APOD by date
+* [x] Display a random APOD image/video
 
 
 ## Tech stack 🛠️
 
-[x] HTML
-[x] CSS
-[x] JavaScript
-[x] Sveltekit/Svelte
-[x] Node.js
-[x] npm
-[x] Rest API - NASA APOD
-[x] GraphQL - Hygraph
+* [x] HTML
+* [x] CSS
+* [x] JavaScript
+* [x] Sveltekit/Svelte
+* [x] Node.js
+* [x] npm
+* [x] Rest API - NASA APOD
+* [x] GraphQL - Hygraph
 
 # sv
 
