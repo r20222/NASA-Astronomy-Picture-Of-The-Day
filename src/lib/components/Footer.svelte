@@ -13,17 +13,18 @@
 	footer {
 		padding: 1rem;
 		grid-area: footer;
+		color: var(--color5);
 	}
 	span{
 		display:block;
 	}
 	a {
-		color: var(--dark-blue);
-		text-decoration: underline var(--dark-blue);
+		color: var(--color4);
+		text-decoration: underline var(--color4);
 
 		&:hover, &:focus {
-			color: var(--darker-blue);
-			text-decoration: underline var(--text);
+			color: var(--color3);
+			text-decoration: underline var(--color5);
 		}
 	}
 	@media screen and (min-width: 64em) {

@@ -59,7 +59,7 @@
 <style>
 	section {
 		margin-bottom: 3rem;
-		color: var(--text);
+		color: var(--color5);
 		grid-area: form;
 	}
 	h3 {
@@ -82,14 +82,15 @@
 	input {
 		padding: 0.7rem 0.5rem;
 		border-radius: 1rem;
-		border: 1px solid var(--dark-blue);
+		background: var(--form-input);
+		border: 1px solid var(--color4);
 	}
 	button[type='submit'] {
 		display: block;
 		margin-left: auto;
 		padding: 0.7rem 3rem;
-		background-color: var(--dark-blue);
-		color: var(--vanilla);
+		background-color: var(--color4);
+		color: var(--color1);
 		font-weight: 600;
 		letter-spacing: 0.1rem;
 		border-radius: 1rem;
@@ -97,7 +98,7 @@
 		&:hover,
 		&:focus {
 			cursor: pointer;
-			background-color: var(--darker-blue);
+			background-color: var(--color3);
 		}
 	}
 </style>

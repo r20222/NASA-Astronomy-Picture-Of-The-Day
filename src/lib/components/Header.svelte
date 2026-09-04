@@ -4,15 +4,13 @@
 
 <style>
 	header {
-		background-color: var(--header);
 		padding: 1rem;
 	}
 	header a {
-		color: var(--dark-blue);
-	}
-	header a:hover {
-		color: var(--header-hover-color);
-		text-decoration-color: var(--header-underline-hover);
+		color: var(--header);
+		&:focus, &:hover {
+			color: var(--header-hover);
+		}
 	}
 	.homelink{
 		font-size: 1.8rem;

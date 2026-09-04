@@ -11,7 +11,7 @@
 	section {
 		margin-bottom: 3rem;
 		grid-area: explanation;
-		color: var(--text);
+		color: var(--color5);
 	}
 	section p {
 		max-width: 40rem;

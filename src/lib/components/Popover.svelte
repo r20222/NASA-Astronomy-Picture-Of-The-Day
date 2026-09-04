@@ -72,9 +72,9 @@
 
 	figcaption {
 		position: relative;
-		background: var(--vanilla);
+		background: var(--color1);
 		text-align: start;
-		color: var(--text);
+		color: var(--color5);
 		z-index: 99999;
 	}
 	figcaption:has(span) {
@@ -86,9 +86,9 @@
 		padding: 0;
 		border: none;
 		cursor: pointer;
-		background-color: var(--vanilla);
+		background-color: var(--color1);
 		&:focus {
-			box-shadow: 0 0 0 4px var(--dark-blue);
+			box-shadow: 0 0 0 4px var(--color4);
 		}
 		&:hover {
 			img {
@@ -102,8 +102,8 @@
 		width: 97vw;
 		height: 97vh;
 		border-radius: 1rem;
-		border: solid 1px var(--dark-blue);
-		background-color: var(--not-white);
+		border: solid 1px var(--color4);
+		background-color: var(--color2);
 		& img {
 			margin: 1rem 0;
 		}
@@ -115,8 +115,8 @@
 		display: block;
 		margin-left: auto;
 		padding: 0.5rem 1rem;
-		background-color: var(--dark-blue);
-		color: var(--vanilla);
+		background-color: var(--color4);
+		color: var(--color1);
 		font-weight: 600;
 		letter-spacing: 0.1rem;
 		border-radius: 1rem;
@@ -124,7 +124,7 @@
 		&:hover,
 		&:focus {
 			cursor: pointer;
-			background-color: var(--darker-blue);
+			background-color: var(--color3);
 		}
 	}
 
@@ -140,7 +140,7 @@
 			padding: 0 1rem 1rem;
 			text-align: start;
 			background: none;
-			color: var(--vanilla);
+			color: var(--color1);
 		}
 		img {
 			width: 100%;
@@ -159,7 +159,7 @@
 				border-radius: 1rem;
 			}
 			& figcaption {
-				color: var(--text);
+				color: var(--color5);
 			}
 		}
 	}

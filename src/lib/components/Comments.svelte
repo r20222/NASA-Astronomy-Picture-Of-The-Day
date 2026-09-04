@@ -31,6 +31,9 @@
 		grid-area: comments;
 		height: 25rem;
 	}
+	h2 {
+		color: var(--color5);
+	}
 	div {
 		position: relative;
 		margin-bottom: 3rem;
@@ -47,8 +50,8 @@
 	li {
 		padding: 1rem;
 		margin: 0.5rem 0 0.5rem 0;
-		background-color: var(--not-white);
-		border: 1px solid var(--dark-blue);
+		background-color: var(--color2);
+		border: 1px solid var(--color4);
 		border-radius: 1rem;
 	}
 	h3 {

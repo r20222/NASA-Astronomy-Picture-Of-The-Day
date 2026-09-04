@@ -72,7 +72,7 @@
 	}
 	label {
 		margin-bottom: 1rem;
-		color: var(--text);
+		color: var(--color5);
 		font-size: 1.5rem;
 		font-weight: 600;
 		grid-column: 1 / -1;
@@ -80,10 +80,11 @@
 
 	input[type='date'] {
 		padding: 0.5rem 1rem;
-		color: var(--text);
+		color: var(--color5);
+		background-color: var(--form-input);
 		border-top-left-radius: 1rem;
 		border-bottom-left-radius: 1rem;
-		border: 1px solid var(--dark-blue);
+		border: 1px solid var(--color4);
 		&:hover {
 			cursor: pointer;
 		}
@@ -93,8 +94,8 @@
 	}
 	button[type='submit'] {
 		padding: 0.5rem 1rem;
-		background-color: var(--dark-blue);
-		color: var(--vanilla);
+		background-color: var(--color4);
+		color: var(--color1);
 		font-weight: 600;
 		letter-spacing: 0.1rem;
 		border-top-right-radius: 1rem;
@@ -103,15 +104,15 @@
 		&:hover,
 		&:focus {
 			cursor: pointer;
-			background-color: var(--darker-blue);
+			background-color: var(--color3);
 		}
 	}
 	button.random {
 		padding: 0.5rem 1rem;
 		width: 100%;
 		max-width: 25rem;
-		background-color: var(--dark-blue);
-		color: var(--vanilla);
+		background-color: var(--color4);
+		color: var(--color1);
 		font-weight: 600;
 		letter-spacing: 0.1rem;
 		border-radius: 1rem;
@@ -119,7 +120,7 @@
 		&:hover,
 		&:focus {
 			cursor: pointer;
-			background-color: var(--darker-blue);
+			background-color: var(--color3);
 		}
 	}
 

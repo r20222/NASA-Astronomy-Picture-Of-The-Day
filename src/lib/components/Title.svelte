@@ -14,10 +14,10 @@
 	}
 	h1 {
 		margin-bottom: 0.5rem;
-		color: var(--text);
+		color: var(--color5);
 	}
 	p {
 		margin-top: 0.5rem;
-		color: var(--text);
+		color: var(--color5);
 	}
 </style>
