@@ -14,11 +14,13 @@
 		<button title="Open popover" class="popover-open-button" popovertarget="image-popover">
 			<figure>
 				<img src={url} alt="" width="300" height="300" />
-				{#if copyright}
-					<figcaption>
+
+				<figcaption>
+					{#if copyright}
 						&#169; {copyright}
-					</figcaption>
-				{/if}
+					{/if}
+					<span>⛶ Click to open popover</span>
+				</figcaption>
 			</figure>
 		</button>
 	{/if}
@@ -52,7 +54,10 @@
 	}
 	figure {
 		margin: 0;
-		border-radius: 1rem;
+		border-top-left-radius: 1rem;
+		border-top-right-radius: 1rem;
+
+		overflow: hidden;
 	}
 	img,
 	video,
@@ -61,9 +66,21 @@
 		height: 100%;
 		border-radius: 1rem;
 	}
+	img {
+		transition: transform 0.3s;
+	}
+
 	figcaption {
+		position: relative;
+		background: var(--vanilla);
 		text-align: start;
 		color: var(--text);
+		z-index: 99999;
+	}
+	figcaption:has(span) {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 	}
 	.popover-open-button {
 		padding: 0;
@@ -72,6 +89,11 @@
 		background-color: var(--vanilla);
 		&:focus {
 			box-shadow: 0 0 0 4px var(--dark-blue);
+		}
+		&:hover {
+			img {
+				transform: scale(1.05);
+			}
 		}
 	}
 	[popover] {
@@ -117,6 +139,7 @@
 		figcaption {
 			padding: 0 1rem 1rem;
 			text-align: start;
+			background: none;
 			color: var(--vanilla);
 		}
 		img {
