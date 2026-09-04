@@ -16,10 +16,12 @@
 				<img src={url} alt="" width="300" height="300" />
 				{#if copyright}
 					<figcaption>
-						&#169; {copyright}
+						&#169; {copyright} 
+						<span>⛶ Click to open popover</span>
 					</figcaption>
 				{/if}
 			</figure>
+			
 		</button>
 	{/if}
 
@@ -64,6 +66,11 @@
 	figcaption {
 		text-align: start;
 		color: var(--text);
+	}
+	figcaption:has(span){
+		display:flex;
+		justify-content: space-between;
+		align-items: end;
 	}
 	.popover-open-button {
 		padding: 0;
