@@ -34,6 +34,7 @@ I created this project 3 years ago with EJS, and I decided it was time to give i
 * [x] Sveltekit/Svelte
 * [x] Node.js
 * [x] npm
+* [x] Vite
 * [x] Rest API - NASA APOD
 * [x] GraphQL - Hygraph
 
