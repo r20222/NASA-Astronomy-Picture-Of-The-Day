@@ -84,6 +84,11 @@
 		border-radius: 1rem;
 		background: var(--form-input);
 		border: 1px solid var(--input-border);
+
+		color:var(--text);
+	}
+	input::placeholder {
+		color:var(--placeholder);
 	}
 	button[type='submit'] {
 		display: block;

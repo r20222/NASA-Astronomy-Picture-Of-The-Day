@@ -85,12 +85,14 @@
 		border-top-left-radius: 1rem;
 		border-bottom-left-radius: 1rem;
 		border: 1px solid var(--input-border);
+		border-right:none;
 		&:hover {
 			cursor: pointer;
 		}
 	}
 	input[type='date']::-webkit-calendar-picker-indicator {
 		cursor: pointer;
+		color-scheme: var(--calendar);
 	}
 	button[type='submit'] {
 		padding: 0.5rem 1rem;
