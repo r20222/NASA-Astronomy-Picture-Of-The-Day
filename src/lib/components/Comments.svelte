@@ -32,7 +32,7 @@
 		height: 25rem;
 	}
 	h2 {
-		color: var(--color5);
+		color: var(--text);
 	}
 	div {
 		position: relative;
@@ -50,8 +50,8 @@
 	li {
 		padding: 1rem;
 		margin: 0.5rem 0 0.5rem 0;
-		background-color: var(--color2);
-		border: 1px solid var(--color4);
+		background-color: var(--comment-background);
+		border: 1px solid var(--comment-border);
 		border-radius: 1rem;
 	}
 	h3 {

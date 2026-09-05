@@ -23,65 +23,103 @@
 
 	/* ik wil nog een dark mode */
 	:root {
-
 		/* Header */
 		--header: #044356;
-		--header-hover:#042b38;
+		--header-hover: #042b38;
 
 		/* Background and text */
 		--background: #fcf6bd;
 		--text: #222222;
 
+		/* Comments */
+		--comment-background: #fffbd3;
+		--comment-border: #044356;
+
 		/* Buttons and forms */
-		--button-background:#044356;
+		--button-background: #044356;
 		--button-background-hover: #042b38;
+		--button-color: #fcf6bd;
 		--button-spinner: #fcf6bd;
 		--form-input: #fffbd3;
+		--input-border: #044356;
 
 		/* Popover */
 		--popover-button-background: #000000;
-		--popover-figcaption-color-mobile: #222222; 
-		--popover-figcaption-color-desktop: #fcf6bd; 
-		--popover-open-figcaption: #222222;
+		--popover-focus-border: #044356;
+		--popover-figcaption-color-mobile: #222222;
+		--popover-figcaption-background: #fcf6bd;
+		--popover-figcaption-color-desktop: #fcf6bd;
+		--popover-open--text-figcaption: #222222;
 		--popover-open-background: #fffbd3;
+		--popover-border: #044356;
 
-		--color1: #fcf6bd;
+		/* Footer */
+		--footer-link: #044356;
+		--footer-link-underline: #042b38;
+		--footer-link-hover: #042b38;
+		--footer-link-underline-hover: #044356;
+
+		/* --color1: #fcf6bd;
 		--color2: #fffbd3;
 		--color3: #042b38;
 		--color4: #044356;
 		--color5: #222222;
 		--color6: black;
-		
 
 		--vanilla: #fcf6bd;
 		--not-white: #fffbd3;
 		--dark-blue: #044356;
 		--darker-blue: #042b38;
 		--text: #222222;
-		--black: var(--black);
+		--black: var(--black); */
 	}
-	/* @media (prefers-color-scheme: dark) {
+	@media (prefers-color-scheme: dark) {
 		:root {
-			--color1: #042b38 ;
-			--color2:#044356 ;
-			--color3: #fffbd3 ;
-			--color4: #fcf6bd;
-			--color5:#fcf6bd ;
-			--color6: black;
+			/* Header */
+			--header: var(--vanilla);
+			--header-hover: var(--not-white);
 
-			--background: #042b38;
-			--button: #fcf6bd;
-			--button-hover: #fffbd3;
-			--text: #fcf6bd;
+			/* Background and text */
+			--background: var(--darker-blue);
+			--text: var(--vanilla);
+
+			/* Comments */
+			--comment-background: var(--dark-blue);
+			--comment-border: var(--not-white);
+
+			/* Buttons and forms */
+			--button-background: var(--not-black);
+			--button-background-hover: var(--not-black-either);
+			--button-color: var(--vanilla);
+			--button-spinner: #fcf6bd;
+			--form-input: #fffbd3;
+			--form-input-text: #222222;
+			--input-border: #044356;
+
+			/* Popover */
+			--popover-button-background: #000000;
+			--popover-focus-border: #044356;
+			--popover-figcaption-color-mobile: #222222;
+			--popover-figcaption-background: #fcf6bd;
+			--popover-figcaption-color-desktop: #fcf6bd;
+			--popover-open--text-figcaption: #222222;
+			--popover-open-background: #fffbd3;
+			--popover-border: #044356;
+
+			/* Footer */
+			--footer-link: #044356;
+			--footer-link-underline: #042b38;
+			--footer-link-hover: #042b38;
+			--footer-link-underline-hover: #044356;
 
 			--vanilla: #fcf6bd;
 			--not-white: #fffbd3;
 			--dark-blue: #044356;
 			--darker-blue: #042b38;
-			--text: #222222;
-			--black: var(--black);
+			--not-black: #0a0a0a;
+			--not-black-either: #141414;
 		}
-	} */
+	}
 	:global(body) {
 		font-family: 'Space Grotesk', sans-serif;
 		background-color: var(--background);
@@ -96,7 +134,7 @@
 		margin-left: 0.5rem;
 		width: 1.1rem;
 		height: 1.1rem;
-		border: 4px dotted var(--color1);
+		border: 4px dotted var(--button-spinner);
 		border-radius: 50%;
 		position: absolute;
 		box-sizing: border-box;

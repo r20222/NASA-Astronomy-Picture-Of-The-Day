@@ -72,9 +72,9 @@
 
 	figcaption {
 		position: relative;
-		background: var(--color1);
+		background: var(--popover-figcaption-background);
 		text-align: start;
-		color: var(--color5);
+		color: var(--popover-figcaption-color-mobile);
 		z-index: 99999;
 	}
 	figcaption:has(span) {
@@ -86,9 +86,9 @@
 		padding: 0;
 		border: none;
 		cursor: pointer;
-		background-color: var(--color1);
+		background-color: var(--popover-open-background);
 		&:focus {
-			box-shadow: 0 0 0 4px var(--color4);
+			box-shadow: 0 0 0 4px var(--popover-focus-border);
 		}
 		&:hover {
 			img {
@@ -102,10 +102,13 @@
 		width: 97vw;
 		height: 97vh;
 		border-radius: 1rem;
-		border: solid 1px var(--color4);
-		background-color: var(--color2);
+		border: solid 1px var(--popover-border);
+		background-color: var(--popover-open-background);
 		& img {
 			margin: 1rem 0;
+		}
+		& figcaption {
+			background-color: var(--popover-open-background);
 		}
 	}
 	:global(html:has([popover]:popover-open)) {
@@ -115,8 +118,8 @@
 		display: block;
 		margin-left: auto;
 		padding: 0.5rem 1rem;
-		background-color: var(--color4);
-		color: var(--color1);
+		background-color: var(--button-background);
+		color: var(--button-color);
 		font-weight: 600;
 		letter-spacing: 0.1rem;
 		border-radius: 1rem;
@@ -124,7 +127,7 @@
 		&:hover,
 		&:focus {
 			cursor: pointer;
-			background-color: var(--color3);
+			background-color: var(--button-background-hover);
 		}
 	}
 
@@ -132,7 +135,7 @@
 		.popover-open-button {
 			position: relative;
 			width: 100%;
-			background-color: black;
+			background-color: var(--popover-button-background);
 			object-fit: contain;
 			border-radius: 1rem;
 		}
@@ -140,7 +143,7 @@
 			padding: 0 1rem 1rem;
 			text-align: start;
 			background: none;
-			color: var(--color1);
+			color: var(--popover-open-background);
 		}
 		img {
 			width: 100%;
@@ -159,7 +162,7 @@
 				border-radius: 1rem;
 			}
 			& figcaption {
-				color: var(--color5);
+				color: var(--text);
 			}
 		}
 	}
