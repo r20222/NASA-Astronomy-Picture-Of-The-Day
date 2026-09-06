@@ -136,6 +136,22 @@
 	:global(main) {
 		margin: 0 1rem;
 	}
+	:global(button.btn){
+		padding: 0.5rem 1rem;
+		width: 100%;
+		max-width: 25rem;
+		background-color: var(--button-background);
+		color: var(--button-color);
+		font-weight: 600;
+		letter-spacing: 0.1rem;
+		border-radius: 1rem;
+		border: none;
+		&:hover,
+		&:focus {
+			cursor: pointer;
+			background-color: var(--button-background-hover);
+		}
+	}
 	:global(.spinner) {
 		margin-left: 0.5rem;
 		width: 1.1rem;

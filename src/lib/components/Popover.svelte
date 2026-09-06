@@ -1,10 +1,23 @@
 <script>
 	let { url, mediatype, hdurl, copyright } = $props();
+
+	let loadVideo = $state(false);
+	//   Video id hier weergeven??
 </script>
 
 <div class="image-container">
 	{#if url.includes('youtube.com') || url.includes('youtu.be')}
-		<iframe width="300" height="300" src={url} title="YouTube video" allowfullscreen></iframe>
+		{#if !loadVideo}
+			<button class="btn" onclick={() => (loadVideo = true)}>Click to load the Youtube Video</button>
+		{:else}
+			<iframe width="300" height="300" src={url} title="YouTube video" allowfullscreen></iframe>
+		{/if}
+	{:else if url.includes('vimeo.com')}
+		{#if !loadVideo}
+			<button class="btn" onclick={() => (loadVideo = true)}>Click to load the Vimeo Video</button>
+		{:else}
+			<iframe src={url} width="300" height="300" title="Vimeo video" allowfullscreen></iframe>
+		{/if}
 	{:else if mediatype === 'video'}
 		<video width="300" height="300" controls>
 			<source src={url} type="video/mp4" />
@@ -56,7 +69,6 @@
 		margin: 0;
 		border-top-left-radius: 1rem;
 		border-top-right-radius: 1rem;
-
 		overflow: hidden;
 	}
 	img,
@@ -69,6 +81,9 @@
 	img {
 		transition: transform 0.3s;
 	}
+	/* video {
+		min-height: 27rem;
+	} */
 
 	figcaption {
 		position: relative;
