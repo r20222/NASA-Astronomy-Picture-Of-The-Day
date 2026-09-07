@@ -30,7 +30,7 @@
 
 				<figcaption>
 					{#if copyright}
-						&#169; {copyright}
+						<span>&#169; {copyright}</span>
 					{/if}
 					<span>⛶ Click to open popover</span>
 				</figcaption>
@@ -85,7 +85,7 @@
 
 	figcaption {
 		position: relative;
-		background: var(--popover-figcaption-background);
+		/* background: var(--popover-figcaption-background); */
 		text-align: start;
 		color: var(--popover-figcaption-color-mobile);
 		z-index: 99999;
@@ -116,12 +116,12 @@
 		height: 97vh;
 		border-radius: 1rem;
 		border: solid 1px var(--popover-border);
-		background-color: var(--popover-open-background);
+		background-color: var(--popover-opened-background);
 		& img {
 			margin: 1rem 0;
 		}
 		& figcaption {
-			background-color: var(--popover-open-background);
+			background-color: var(--popover-opened-background);
 		}
 	}
 	:global(html:has([popover]:popover-open)) {
@@ -158,9 +158,14 @@
 		figcaption {
 			padding: 0 1rem 1rem;
 			text-align: start;
-			background: none;
+			/* background-color: var(--popover-open-background); */
+			/* background-color: var(--popover-button-background); */
+			/* background: rgba(155,155,155, 0 ); */
 			/* color: var(--popover-open-background); */
 			color: var(--popover-figcaption-color-desktop);
+		}
+		span {
+			background:grey;
 		}
 
 		img,

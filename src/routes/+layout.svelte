@@ -21,61 +21,53 @@
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap');
 
-	/* ik wil nog een dark mode */
 	:root {
 		/* Header */
-		--header: #044356;
-		--header-hover: #042b38;
+		--header: var(--dark-blue);
+		--header-hover: var(--darker-blue);
 
 		/* Background and text */
-		--background: #fcf6bd;
+		--background: var(--vanilla);
 		--text: #222222;
 
 		/* Comments */
-		--comment-background: #fffbd3;
-		--comment-border: #044356;
+		--comment-background: var(--not-white);
+		--comment-border: var(--dark-blue);
 
 		/* Buttons and forms */
-		--button-background: #044356;
-		--button-background-hover: #042b38;
-		--button-color: #fcf6bd;
-		--button-spinner: #fcf6bd;
-		--form-input: #fffbd3;
-		--input-border: #044356;
-		--input-border-search: #044356;
+		--button-background: var(--dark-blue);
+		--button-background-hover: var(--darker-blue);
+		--button-color: var(--vanilla);
+		--button-spinner:var(--vanilla);
+		--form-input: var(--not-white);
+		--input-border: var(--dark-blue);
+		--input-border-search: var(--dark-blue);
 		--calendar: light;
 		--placeholder: gray;
 
 		/* Popover */
 		--popover-button-background: #000000;
-		--popover-focus-border: #044356;
+		--popover-focus-border: var(--dark-blue);
 		--popover-figcaption-color-mobile: #222222;
-		--popover-figcaption-background: #fcf6bd;
-		--popover-figcaption-color-desktop: #fcf6bd;
-		--popover-open--text-figcaption: #222222;
-		--popover-open-background: #fffbd3;
-		--popover-border: #044356;
-		/* --popover-closed-figcaption-text: */
+		--popover-figcaption-background: var(--vanilla);
+		--popover-figcaption-color-desktop: var(--vanilla);
+		--popover-open--text-figcaption: var(--text);
+		--popover-open-background: var(--not-white);
+		--popover-opened-background: var(--not-white);
+		--popover-border: var(--dark-blue);
 
-		/* Footer */
-		--link: #044356;
-		--link-underline: #042b38;
-		--link-hover: #042b38;
-		--link-underline-hover: #044356;
-
-		/* --color1: #fcf6bd;
-		--color2: #fffbd3;
-		--color3: #042b38;
-		--color4: #044356;
-		--color5: #222222;
-		--color6: black;
+		/* inline links */
+		--link: var(--dark-blue);
+		--link-underline: var(--darker-blue);
+		--link-hover: var(--darker-blue);
+		--link-underline-hover: var(--dark-blue);
 
 		--vanilla: #fcf6bd;
 		--not-white: #fffbd3;
+		--more-vanilla: #fbf196;
+		--even-more-vanilla: #f7e96c;
 		--dark-blue: #044356;
 		--darker-blue: #042b38;
-		--text: #222222;
-		--black: var(--black); */
 	}
 	@media (prefers-color-scheme: dark) {
 		:root {
@@ -106,18 +98,19 @@
 			/* Popover */
 			--popover-button-background: #000000;
 			--popover-focus-border: var(--vanilla);
-			--popover-figcaption-color-mobile:var(--vanilla);
+			--popover-figcaption-color-mobile: var(--vanilla);
 			--popover-figcaption-background: var(--darker-blue);
 			--popover-figcaption-color-desktop: var(-vanilla);
 			--popover-open--text-figcaption: #222222;
-			--popover-open-background: var(--dark-blue);
+			--popover-open-background: var(--darker-blue);
+			--popover-opened-background: var(--dark-blue);
 			--popover-border: var(--not-black);
 
 			/* inline links */
 			--link: var(--more-vanilla);
 			--link-underline: var(--not-black);
 			--link-hover: var(--even-more-vanilla);
-			--link-underline-hover:var(--not-black-either);
+			--link-underline-hover: var(--not-black-either);
 
 			--vanilla: #fcf6bd;
 			--not-white: #fffbd3;
@@ -126,20 +119,19 @@
 			--dark-blue: #044356;
 			--darker-blue: #042b38;
 			--not-black: #0a0a0a;
-			--not-black-either: #000000;
+			--not-black-either: #050505;
 		}
 	}
 	:global(body) {
 		font-family: 'Space Grotesk', sans-serif;
 		background-color: var(--background);
-
 		margin: 0rem;
 	}
 
 	:global(main) {
 		margin: 0 1rem;
 	}
-	:global(button.btn){
+	:global(button.btn) {
 		padding: 0.5rem 1rem;
 		width: 100%;
 		max-width: 25rem;
@@ -176,7 +168,6 @@
 	}
 
 	/* mediaqueries */
-
 	@media screen and (min-width: 48em) {
 		:global(main) {
 			display: grid;
