@@ -42,6 +42,7 @@
 		--button-spinner: #fcf6bd;
 		--form-input: #fffbd3;
 		--input-border: #044356;
+		--input-border-search: #044356;
 		--calendar: light;
 		--placeholder: gray;
 
@@ -54,12 +55,13 @@
 		--popover-open--text-figcaption: #222222;
 		--popover-open-background: #fffbd3;
 		--popover-border: #044356;
+		/* --popover-closed-figcaption-text: */
 
 		/* Footer */
-		--footer-link: #044356;
-		--footer-link-underline: #042b38;
-		--footer-link-hover: #042b38;
-		--footer-link-underline-hover: #044356;
+		--link: #044356;
+		--link-underline: #042b38;
+		--link-hover: #042b38;
+		--link-underline-hover: #044356;
 
 		/* --color1: #fcf6bd;
 		--color2: #fffbd3;
@@ -96,21 +98,22 @@
 			--button-spinner: #fcf6bd;
 			--form-input: var(--dark-blue);
 			--form-input-text: var(--vanilla);
-			--input-border: var(--not-white);
+			--input-border: var(--vanilla);
+			--input-border-search: var(--not-black-either);
 			--calendar: dark;
 			--placeholder: var(--vanilla);
 
 			/* Popover */
 			--popover-button-background: #000000;
-			--popover-focus-border: #044356;
+			--popover-focus-border: var(--vanilla);
 			--popover-figcaption-color-mobile:var(--vanilla);
 			--popover-figcaption-background: var(--darker-blue);
-			--popover-figcaption-color-desktop: pink;
+			--popover-figcaption-color-desktop: var(-vanilla);
 			--popover-open--text-figcaption: #222222;
-			--popover-open-background: var(--darker-blue);
-			--popover-border: #044356;
+			--popover-open-background: var(--dark-blue);
+			--popover-border: var(--not-black);
 
-			/* Footer */
+			/* inline links */
 			--link: var(--more-vanilla);
 			--link-underline: var(--not-black);
 			--link-hover: var(--even-more-vanilla);

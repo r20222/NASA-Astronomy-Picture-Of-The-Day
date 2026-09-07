@@ -2,7 +2,6 @@
 	let { url, mediatype, hdurl, copyright } = $props();
 
 	let loadVideo = $state(false);
-	//   Video id hier weergeven??
 </script>
 
 <div class="image-container">
@@ -102,9 +101,9 @@
 		cursor: pointer;
 		background-color: var(--popover-open-background);
 		&:focus {
-			box-shadow: 0 0 0 4px var(--popover-focus-border);
+			box-shadow: 0 0 0 3px var(--popover-focus-border);
 		}
-		&:hover {
+		&:hover, &:focus {
 			img {
 				transform: scale(1.05);
 			}
@@ -160,7 +159,8 @@
 			padding: 0 1rem 1rem;
 			text-align: start;
 			background: none;
-			color: var(--popover-open-background);
+			/* color: var(--popover-open-background); */
+			color: var(--popover-figcaption-color-desktop);
 		}
 
 		img,

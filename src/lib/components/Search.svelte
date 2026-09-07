@@ -84,7 +84,7 @@
 		background-color: var(--form-input);
 		border-top-left-radius: 1rem;
 		border-bottom-left-radius: 1rem;
-		border: 1px solid var(--input-border);
+		border: 1px solid var(--input-border-search);
 		border-right:none;
 		&:hover {
 			cursor: pointer;
