@@ -111,10 +111,10 @@
 			--popover-border: #044356;
 
 			/* Footer */
-			--footer-link: var(--more-vanilla);
-			--footer-link-underline: var(--not-black);
-			--footer-link-hover: var(--even-more-vanilla);
-			--footer-link-underline-hover:var(--not-black-either);
+			--link: var(--more-vanilla);
+			--link-underline: var(--not-black);
+			--link-hover: var(--even-more-vanilla);
+			--link-underline-hover:var(--not-black-either);
 
 			--vanilla: #fcf6bd;
 			--not-white: #fffbd3;

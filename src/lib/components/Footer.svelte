@@ -19,12 +19,12 @@
 		display:block;
 	}
 	a {
-		color: var(--footer-link);
-		text-decoration: underline var(--footer-link-underline);
+		color: var(--link);
+		text-decoration: underline var(--link-underline);
 
 		&:hover, &:focus {
-			color: var(--footer-link-hover);
-			text-decoration: underline var(--footer-link-underline-hover);
+			color: var(--link-hover);
+			text-decoration: underline var(--link-underline-hover);
 		}
 	}
 	@media screen and (min-width: 64em) {

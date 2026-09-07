@@ -8,7 +8,8 @@
 <div class="image-container">
 	{#if url.includes('youtube.com') || url.includes('youtu.be')}
 		{#if !loadVideo}
-			<button class="btn" onclick={() => (loadVideo = true)}>Click to load the Youtube Video</button>
+			<button class="btn" onclick={() => (loadVideo = true)}>Click to load the Youtube Video</button
+			>
 		{:else}
 			<iframe width="300" height="300" src={url} title="YouTube video" allowfullscreen></iframe>
 		{/if}
@@ -63,6 +64,7 @@
 
 <style>
 	.image-container {
+		min-height: 20rem;
 		grid-area: popover;
 	}
 	figure {
@@ -75,15 +77,12 @@
 	video,
 	iframe {
 		width: 100%;
-		height: 100%;
 		border-radius: 1rem;
 	}
 	img {
+		height: 100%;
 		transition: transform 0.3s;
 	}
-	/* video {
-		min-height: 27rem;
-	} */
 
 	figcaption {
 		position: relative;
@@ -147,6 +146,9 @@
 	}
 
 	@media screen and (min-width: 48em) {
+		.image-container {
+			min-height: 27rem;
+		}
 		.popover-open-button {
 			position: relative;
 			width: 100%;
@@ -159,6 +161,12 @@
 			text-align: start;
 			background: none;
 			color: var(--popover-open-background);
+		}
+
+		img,
+		video,
+		iframe {
+			height: 100%;
 		}
 		img {
 			width: 100%;
