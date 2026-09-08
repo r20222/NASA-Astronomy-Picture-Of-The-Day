@@ -20,6 +20,7 @@ I have always been fascinated by the outerspace, stars and planets. Three years 
 * [x] Search APOD by date
 * [x] Display a random APOD image/video
 * [x] Third-party video players are loaded only after user interaction
+* [x] Prevent double submissions by disabling the submit button while loading.
 
 
 ## Tech stack 🛠️
