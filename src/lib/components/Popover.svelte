@@ -5,37 +5,43 @@
 </script>
 
 <div class="image-container">
-	{#if url.includes('youtube.com') || url.includes('youtu.be')}
-		{#if !loadVideo}
-			<button class="btn" onclick={() => (loadVideo = true)}>Click to load the Youtube Video</button
-			>
-		{:else}
-			<iframe width="300" height="300" src={url} title="YouTube video" allowfullscreen></iframe>
-		{/if}
-	{:else if url.includes('vimeo.com')}
-		{#if !loadVideo}
-			<button class="btn" onclick={() => (loadVideo = true)}>Click to load the Vimeo Video</button>
-		{:else}
-			<iframe src={url} width="300" height="300" title="Vimeo video" allowfullscreen></iframe>
-		{/if}
-	{:else if mediatype === 'video'}
-		<video width="300" height="300" controls>
-			<source src={url} type="video/mp4" />
-			Je browser ondersteunt geen video.
-		</video>
-	{:else if mediatype === 'image'}
-		<button title="Open popover" class="popover-open-button" popovertarget="image-popover">
-			<figure>
-				<img src={url} alt="" width="300" height="300" />
+	{#if url}
+		{#if url.includes('youtube.com') || url.includes('youtu.be')}
+			{#if !loadVideo}
+				<button class="btn" onclick={() => (loadVideo = true)}
+					>Click to load the Youtube Video</button
+				>
+			{:else}
+				<iframe width="300" height="300" src={url} title="YouTube video" allowfullscreen></iframe>
+			{/if}
+		{:else if url.includes('vimeo.com')}
+			{#if !loadVideo}
+				<button class="btn" onclick={() => (loadVideo = true)}>Click to load the Vimeo Video</button
+				>
+			{:else}
+				<iframe src={url} width="300" height="300" title="Vimeo video" allowfullscreen></iframe>
+			{/if}
+		{:else if mediatype === 'video'}
+			<video width="300" height="300" controls>
+				<source src={url} type="video/mp4" />
+				Je browser ondersteunt geen video.
+			</video>
+		{:else if mediatype === 'image'}
+			<button title="Open popover" class="popover-open-button" popovertarget="image-popover">
+				<figure>
+					<img src={url} alt="" width="300" height="300" />
 
-				<figcaption>
-					{#if copyright}
-						<span>&#169; {copyright}</span>
-					{/if}
-					<span>⛶ Click to open popover</span>
-				</figcaption>
-			</figure>
-		</button>
+					<figcaption>
+						{#if copyright}
+							<span>&#169; {copyright}</span>
+						{/if}
+						<span>⛶ Click to open popover</span>
+					</figcaption>
+				</figure>
+			</button>
+		{/if}
+	{:else}
+		<p>Today's photo/video is missing.</p>
 	{/if}
 
 	{#if mediatype === 'image'}
@@ -66,6 +72,9 @@
 		min-height: 20rem;
 		grid-area: popover;
 	}
+	p {
+		color:var(--text);
+	}
 	figure {
 		margin: 0;
 		border-top-left-radius: 1rem;
@@ -92,7 +101,7 @@
 	span {
 		padding-inline: 1rem;
 		background: var(--popover-figcaption-span-mobile);
-		border-radius: .2rem;
+		border-radius: 0.2rem;
 	}
 	figcaption:has(span) {
 		display: flex;
