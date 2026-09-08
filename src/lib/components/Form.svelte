@@ -44,7 +44,7 @@
 					required
 				/>
 			</label>
-			<button type="submit">
+			<button type="submit" disabled={loading}>
 				{#if loading}
 					Send Message 🛰️
 					<span class="spinner" aria-hidden="true"></span>
