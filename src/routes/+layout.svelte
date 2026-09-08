@@ -100,7 +100,7 @@
 			--popover-button-background: #000000;
 			--popover-focus-border: var(--vanilla);
 			--popover-figcaption-color-mobile: var(--vanilla);
-			--popover-figcaption-color-desktop: var(-vanilla);
+			--popover-figcaption-color-desktop: var(--vanilla);
 			--popover-open--text-figcaption: #222222;
 			--popover-open-background: var(--darker-blue);
 			--popover-opened-background: var(--dark-blue);
