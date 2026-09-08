@@ -1,10 +1,23 @@
 <script>
 	let { url, mediatype, hdurl, copyright } = $props();
+
+	let loadVideo = $state(false);
 </script>
 
 <div class="image-container">
 	{#if url.includes('youtube.com') || url.includes('youtu.be')}
-		<iframe width="300" height="300" src={url} title="YouTube video" allowfullscreen></iframe>
+		{#if !loadVideo}
+			<button class="btn" onclick={() => (loadVideo = true)}>Click to load the Youtube Video</button
+			>
+		{:else}
+			<iframe width="300" height="300" src={url} title="YouTube video" allowfullscreen></iframe>
+		{/if}
+	{:else if url.includes('vimeo.com')}
+		{#if !loadVideo}
+			<button class="btn" onclick={() => (loadVideo = true)}>Click to load the Vimeo Video</button>
+		{:else}
+			<iframe src={url} width="300" height="300" title="Vimeo video" allowfullscreen></iframe>
+		{/if}
 	{:else if mediatype === 'video'}
 		<video width="300" height="300" controls>
 			<source src={url} type="video/mp4" />
@@ -17,7 +30,7 @@
 
 				<figcaption>
 					{#if copyright}
-						&#169; {copyright}
+						<span>&#169; {copyright}</span>
 					{/if}
 					<span>⛶ Click to open popover</span>
 				</figcaption>
@@ -50,32 +63,36 @@
 
 <style>
 	.image-container {
+		min-height: 20rem;
 		grid-area: popover;
 	}
 	figure {
 		margin: 0;
 		border-top-left-radius: 1rem;
 		border-top-right-radius: 1rem;
-
 		overflow: hidden;
 	}
 	img,
 	video,
 	iframe {
 		width: 100%;
-		height: 100%;
 		border-radius: 1rem;
 	}
 	img {
+		height: 100%;
 		transition: transform 0.3s;
 	}
 
 	figcaption {
 		position: relative;
-		background: var(--color1);
 		text-align: start;
-		color: var(--color5);
+		color: var(--popover-figcaption-color-mobile);
 		z-index: 99999;
+	}
+	span {
+		padding-inline: 1rem;
+		background: var(--popover-figcaption-span-mobile);
+		border-radius: .2rem;
 	}
 	figcaption:has(span) {
 		display: flex;
@@ -86,11 +103,12 @@
 		padding: 0;
 		border: none;
 		cursor: pointer;
-		background-color: var(--color1);
+		background-color: var(--popover-open-background);
 		&:focus {
-			box-shadow: 0 0 0 4px var(--color4);
+			box-shadow: 0 0 0 3px var(--popover-focus-border);
 		}
-		&:hover {
+		&:hover,
+		&:focus {
 			img {
 				transform: scale(1.05);
 			}
@@ -102,10 +120,13 @@
 		width: 97vw;
 		height: 97vh;
 		border-radius: 1rem;
-		border: solid 1px var(--color4);
-		background-color: var(--color2);
+		border: solid 1px var(--popover-border);
+		background-color: var(--popover-opened-background);
 		& img {
 			margin: 1rem 0;
+		}
+		& figcaption {
+			background-color: var(--popover-opened-background);
 		}
 	}
 	:global(html:has([popover]:popover-open)) {
@@ -115,8 +136,8 @@
 		display: block;
 		margin-left: auto;
 		padding: 0.5rem 1rem;
-		background-color: var(--color4);
-		color: var(--color1);
+		background-color: var(--button-background);
+		color: var(--button-color);
 		font-weight: 600;
 		letter-spacing: 0.1rem;
 		border-radius: 1rem;
@@ -124,23 +145,34 @@
 		&:hover,
 		&:focus {
 			cursor: pointer;
-			background-color: var(--color3);
+			background-color: var(--button-background-hover);
 		}
 	}
 
 	@media screen and (min-width: 48em) {
+		.image-container {
+			min-height: 27rem;
+		}
 		.popover-open-button {
 			position: relative;
 			width: 100%;
-			background-color: black;
+			background-color: var(--popover-button-background);
 			object-fit: contain;
 			border-radius: 1rem;
 		}
 		figcaption {
 			padding: 0 1rem 1rem;
 			text-align: start;
-			background: none;
-			color: var(--color1);
+			color: var(--popover-figcaption-color-desktop);
+		}
+		span {
+			background: var(--popover-button-background);
+		}
+
+		img,
+		video,
+		iframe {
+			height: 100%;
 		}
 		img {
 			width: 100%;
@@ -159,7 +191,7 @@
 				border-radius: 1rem;
 			}
 			& figcaption {
-				color: var(--color5);
+				color: var(--text);
 			}
 		}
 	}

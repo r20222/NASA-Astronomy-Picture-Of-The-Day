@@ -72,7 +72,7 @@
 	}
 	label {
 		margin-bottom: 1rem;
-		color: var(--color5);
+		color: var(--text);
 		font-size: 1.5rem;
 		font-weight: 600;
 		grid-column: 1 / -1;
@@ -80,22 +80,24 @@
 
 	input[type='date'] {
 		padding: 0.5rem 1rem;
-		color: var(--color5);
+		color: var(--form-input-text);
 		background-color: var(--form-input);
 		border-top-left-radius: 1rem;
 		border-bottom-left-radius: 1rem;
-		border: 1px solid var(--color4);
+		border: 1px solid var(--input-border-search);
+		border-right:none;
 		&:hover {
 			cursor: pointer;
 		}
 	}
 	input[type='date']::-webkit-calendar-picker-indicator {
 		cursor: pointer;
+		color-scheme: var(--calendar);
 	}
 	button[type='submit'] {
 		padding: 0.5rem 1rem;
-		background-color: var(--color4);
-		color: var(--color1);
+		background-color: var(--button-background);
+		color: var(--button-color);
 		font-weight: 600;
 		letter-spacing: 0.1rem;
 		border-top-right-radius: 1rem;
@@ -104,15 +106,15 @@
 		&:hover,
 		&:focus {
 			cursor: pointer;
-			background-color: var(--color3);
+			background-color: var(--button-background-hover);
 		}
 	}
 	button.random {
 		padding: 0.5rem 1rem;
 		width: 100%;
 		max-width: 25rem;
-		background-color: var(--color4);
-		color: var(--color1);
+		background-color: var(--button-background);
+		color: var(--button-color);
 		font-weight: 600;
 		letter-spacing: 0.1rem;
 		border-radius: 1rem;
@@ -120,7 +122,7 @@
 		&:hover,
 		&:focus {
 			cursor: pointer;
-			background-color: var(--color3);
+			background-color: var(--button-background-hover);
 		}
 	}
 

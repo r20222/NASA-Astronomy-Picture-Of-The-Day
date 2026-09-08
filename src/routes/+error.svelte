@@ -11,15 +11,16 @@
 <style>
 	section {
 		margin: 1rem;
+		color:var(--text);
 	}
 	a {
-		color: var(--dark-blue);
-		text-decoration: underline var(--dark-blue);
+		color: var(--link);
+		text-decoration: underline var(--link-underline);
 
 		&:hover,
 		&:focus {
-			color: var(--darker-blue);
-			text-decoration: underline var(--text);
+			color: var(--link-hover);
+			text-decoration: underline var(--link-underline-hover);
 		}
 	}
 	@media screen and (min-width: 64em) {

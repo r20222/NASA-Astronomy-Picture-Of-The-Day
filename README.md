@@ -24,6 +24,7 @@ I created this project 3 years ago with EJS, and I decided it was time to give i
 * [x] Leave comments on APOD images/videos
 * [x] Search APOD by date
 * [x] Display a random APOD image/video
+* [x] Third-party video players are loaded only after user interaction
 
 
 ## Tech stack 🛠️
