@@ -85,10 +85,14 @@
 
 	figcaption {
 		position: relative;
-		/* background: var(--popover-figcaption-background); */
 		text-align: start;
 		color: var(--popover-figcaption-color-mobile);
 		z-index: 99999;
+	}
+	span {
+		padding-inline: 1rem;
+		background: var(--popover-figcaption-span-mobile);
+		border-radius: .2rem;
 	}
 	figcaption:has(span) {
 		display: flex;
@@ -103,7 +107,8 @@
 		&:focus {
 			box-shadow: 0 0 0 3px var(--popover-focus-border);
 		}
-		&:hover, &:focus {
+		&:hover,
+		&:focus {
 			img {
 				transform: scale(1.05);
 			}
@@ -158,14 +163,10 @@
 		figcaption {
 			padding: 0 1rem 1rem;
 			text-align: start;
-			/* background-color: var(--popover-open-background); */
-			/* background-color: var(--popover-button-background); */
-			/* background: rgba(155,155,155, 0 ); */
-			/* color: var(--popover-open-background); */
 			color: var(--popover-figcaption-color-desktop);
 		}
 		span {
-			background:grey;
+			background: var(--popover-button-background);
 		}
 
 		img,

@@ -38,7 +38,7 @@
 		--button-background: var(--dark-blue);
 		--button-background-hover: var(--darker-blue);
 		--button-color: var(--vanilla);
-		--button-spinner:var(--vanilla);
+		--button-spinner: var(--vanilla);
 		--form-input: var(--not-white);
 		--input-border: var(--dark-blue);
 		--input-border-search: var(--dark-blue);
@@ -49,12 +49,13 @@
 		--popover-button-background: #000000;
 		--popover-focus-border: var(--dark-blue);
 		--popover-figcaption-color-mobile: #222222;
-		--popover-figcaption-background: var(--vanilla);
 		--popover-figcaption-color-desktop: var(--vanilla);
 		--popover-open--text-figcaption: var(--text);
 		--popover-open-background: var(--not-white);
 		--popover-opened-background: var(--not-white);
 		--popover-border: var(--dark-blue);
+		--popover-figcaption-span-mobile: var(--vanilla);
+
 
 		/* inline links */
 		--link: var(--dark-blue);
@@ -99,12 +100,12 @@
 			--popover-button-background: #000000;
 			--popover-focus-border: var(--vanilla);
 			--popover-figcaption-color-mobile: var(--vanilla);
-			--popover-figcaption-background: var(--darker-blue);
 			--popover-figcaption-color-desktop: var(-vanilla);
 			--popover-open--text-figcaption: #222222;
 			--popover-open-background: var(--darker-blue);
 			--popover-opened-background: var(--dark-blue);
 			--popover-border: var(--not-black);
+			--popover-figcaption-span-mobile: var(--darker-blue);
 
 			/* inline links */
 			--link: var(--more-vanilla);
