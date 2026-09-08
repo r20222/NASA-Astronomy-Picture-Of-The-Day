@@ -39,7 +39,7 @@
 	<form action="/day" method="get">
 		<label for="day">Pick a day:</label>
 		<input type="date" id="day" name="day" {value} min="1995-06-16" {max} />
-		<button type="submit">
+		<button type="submit" disabled={loading}>
 			{#if loading}
 				Search 🚀
 				<span class="spinner" aria-hidden="true"></span>
@@ -49,7 +49,7 @@
 		</button>
 	</form>
 
-	<button class="random" onclick={pickRandomDay}>
+	<button class="random" onclick={pickRandomDay} disabled={loadingRandom}>
 		{#if loadingRandom}
 			Pick a random day 🌌
 			<span class="spinner" aria-hidden="true"></span>
