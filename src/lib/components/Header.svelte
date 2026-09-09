@@ -61,8 +61,12 @@
 		border-radius: 1.5rem;
 		& span.emojis {
 			position: absolute;
+			display:flex;
+			justify-content: center;
+			align-items: center;
 			top: 0;
-			padding: 0.43rem;
+			bottom:0;
+			aspect-ratio: 1;
 			background-color: var(--switch-span);
 			border-radius: 1rem;
 			transform: translateX(-1rem);
@@ -78,12 +82,12 @@
 	}
 	/* left */
 	:global(html.js[data-theme='light']) button span.emojis, :global(html.js) button span:not(.dark) {
-		transform: translateX(-.15rem);
+		transform: translateX(-.4rem);
 	}
 
 	/* right */
 	:global(html.js[data-theme='dark']) button span.emojis, :global(html.js) button span.dark {
-		transform: translateX(-1.85rem);
+		transform: translateX(1.3rem);
 	}
 
 	@media screen and (min-width: 64em) {
