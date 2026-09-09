@@ -87,7 +87,7 @@
 
 	/* right */
 	:global(html.js[data-theme='dark']) button span.emojis, :global(html.js) button span.dark {
-		transform: translateX(1.3rem);
+		transform: translateX(1.4rem);
 	}
 
 	@media screen and (min-width: 64em) {
