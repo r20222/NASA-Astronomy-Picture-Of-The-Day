@@ -68,7 +68,6 @@ export const actions = {
             date,
             today
         );
-        console.log('Hygraph klaar:', result);
 
         return {
             success: true
