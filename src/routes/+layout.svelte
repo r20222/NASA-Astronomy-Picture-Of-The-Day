@@ -2,6 +2,11 @@
 	import favicon from '$lib/assets/favicon.svg';
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import { onMount } from 'svelte';
+
+	onMount(() => {
+		document.documentElement.classList.add('js');
+	});
 
 	let { children } = $props();
 </script>
@@ -21,10 +26,16 @@
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap');
 
-	:root {
+	:root,
+	:root[data-theme='light'] {
 		/* Header */
 		--header: var(--dark-blue);
 		--header-hover: var(--darker-blue);
+
+		/* Header light/dark switch */
+		--switch-background: var(--vanilla);
+		--switch-border: var(--dark-blue);
+		--switch-span: var(--darker-blue);
 
 		/* Background and text */
 		--background: var(--vanilla);
@@ -40,6 +51,7 @@
 		--button-color: var(--vanilla);
 		--button-spinner: var(--vanilla);
 		--form-input: var(--not-white);
+		--form-input-text: var(--text);
 		--input-border: var(--dark-blue);
 		--input-border-search: var(--dark-blue);
 		--calendar: light;
@@ -56,7 +68,6 @@
 		--popover-border: var(--dark-blue);
 		--popover-figcaption-span-mobile: var(--vanilla);
 
-
 		/* inline links */
 		--link: var(--dark-blue);
 		--link-underline: var(--darker-blue);
@@ -70,11 +81,72 @@
 		--dark-blue: #044356;
 		--darker-blue: #042b38;
 	}
+	:root[data-theme='dark'] {
+		/* Header */
+		--header: var(--vanilla);
+		--header-hover: var(--not-white);
+
+		/* Header light/dark switch */
+		--switch-background: var(--darker-blue);
+		--switch-border: var(--more-vanilla);
+		--switch-span: var(--vanilla);
+
+		/* Background and text */
+		--background: var(--darker-blue);
+		--text: var(--vanilla);
+
+		/* Comments */
+		--comment-background: var(--dark-blue);
+		--comment-border: var(--not-white);
+
+		/* Buttons and forms */
+		--button-background: var(--not-black);
+		--button-background-hover: var(--not-black-either);
+		--button-color: var(--vanilla);
+		--button-spinner: #fcf6bd;
+		--form-input: var(--dark-blue);
+		--form-input-text: var(--vanilla);
+		--input-border: var(--vanilla);
+		--input-border-search: var(--not-black-either);
+		--calendar: dark;
+		--placeholder: var(--vanilla);
+
+		/* Popover */
+		--popover-button-background: #000000;
+		--popover-focus-border: var(--vanilla);
+		--popover-figcaption-color-mobile: var(--vanilla);
+		--popover-figcaption-color-desktop: var(--vanilla);
+		--popover-open--text-figcaption: #222222;
+		--popover-open-background: var(--darker-blue);
+		--popover-opened-background: var(--dark-blue);
+		--popover-border: var(--not-black);
+		--popover-figcaption-span-mobile: var(--darker-blue);
+
+		/* inline links */
+		--link: var(--more-vanilla);
+		--link-underline: var(--not-black);
+		--link-hover: var(--even-more-vanilla);
+		--link-underline-hover: var(--not-black-either);
+
+		--vanilla: #fcf6bd;
+		--not-white: #fffbd3;
+		--more-vanilla: #fbf196;
+		--even-more-vanilla: #f7e96c;
+		--dark-blue: #044356;
+		--darker-blue: #042b38;
+		--not-black: #0a0a0a;
+		--not-black-either: #050505;
+	}
 	@media (prefers-color-scheme: dark) {
 		:root {
 			/* Header */
 			--header: var(--vanilla);
 			--header-hover: var(--not-white);
+
+			/* Header light/dark switch */
+			--switch-background: var(--darker-blue);
+			--switch-border: var(--more-vanilla);
+			--switch-span: var(--vanilla);
 
 			/* Background and text */
 			--background: var(--darker-blue);

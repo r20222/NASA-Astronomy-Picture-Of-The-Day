@@ -19,7 +19,6 @@
 
 		// calculate how many days have passed
 		const days = Math.floor(difference / millisecondsPerDay);
-		console.log(days);
 
 		// Give a random number that fits in the amount of days
 		const randomDays = Math.floor(Math.random() * days);
