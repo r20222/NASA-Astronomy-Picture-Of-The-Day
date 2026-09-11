@@ -22,7 +22,6 @@
 		<span class:dark={dark} class="emojis">{dark ? '☀️' : '🌙'}</span>
 		<span class="btn-text">Toggle theme</span>
 	</button>
-
 </header>
 
 <style>

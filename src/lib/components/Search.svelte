@@ -84,7 +84,7 @@
 		border-top-left-radius: 1rem;
 		border-bottom-left-radius: 1rem;
 		border: 1px solid var(--input-border-search);
-		border-right:none;
+		border-right: none;
 		&:hover {
 			cursor: pointer;
 		}
@@ -109,26 +109,39 @@
 		}
 	}
 	button.random {
-		padding: 0.5rem 1rem;
-		width: 100%;
-		max-width: 25rem;
-		background-color: var(--button-background);
-		color: var(--button-color);
-		font-weight: 600;
-		letter-spacing: 0.1rem;
-		border-radius: 1rem;
-		border: none;
-		&:hover,
-		&:focus {
-			cursor: pointer;
-			background-color: var(--button-background-hover);
+		visibility: hidden;
+		margin-bottom: 0.67rem;
+	}
+	:global(html.js) {
+		button.random {
+			visibility: visible;
+			margin-bottom: 0;
+			padding: 0.5rem 1rem;
+			width: 100%;
+			max-width: 25rem;
+			background-color: var(--button-background);
+			color: var(--button-color);
+			font-weight: 600;
+			letter-spacing: 0.1rem;
+			border-radius: 1rem;
+			border: none;
+			&:hover,
+			&:focus {
+				cursor: pointer;
+				background-color: var(--button-background-hover);
+			}
 		}
 	}
 
 	@media screen and (min-width: 48em) {
-		form,
-		button.random {
+		form {
 			max-width: 100%;
+		}
+
+		:global(html.js) {
+			button.random {
+				max-width: 100%;
+			}
 		}
 	}
 </style>
