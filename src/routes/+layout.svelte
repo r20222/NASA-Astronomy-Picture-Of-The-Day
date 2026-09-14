@@ -195,14 +195,22 @@
 			--not-black-either: #050505;
 		}
 	}
+	:global(html) {
+		height: 100%;
+	}
 	:global(body) {
+		 display: flex;
+  flex-direction: column;
 		font-family: 'Space Grotesk', sans-serif;
 		background-color: var(--background);
-		margin: 0rem;
+		margin: 0;
+		height: 100%;
+
 	}
 
 	:global(main) {
 		margin: 0 1rem;
+		 flex: 1 0 auto;
 	}
 	:global(button.btn) {
 		padding: 0.5rem 1rem;

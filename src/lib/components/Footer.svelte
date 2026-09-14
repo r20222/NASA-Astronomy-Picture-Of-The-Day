@@ -11,6 +11,7 @@
 
 <style>
 	footer {
+		flex-shrink: 0;
 		padding: 1rem;
 		grid-area: footer;
 		color: var(--text);
