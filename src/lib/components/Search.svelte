@@ -1,12 +1,13 @@
 <script>
 	import { navigating } from '$app/state';
+	import { goto } from '$app/navigation';
 
 	// When the page is navigating you will see the spinner
-	let loading = $derived(navigating.to !== null);
+	let loading = $derived(navigating.to !== null && !loadingRandom);
 	let loadingRandom = $state(false);
 	let { value, max } = $props();
 
-	function pickRandomDay() {
+	async function pickRandomDay() {
 		loadingRandom = true;
 		const minDate = new Date('1995-06-16');
 		const maxDate = new Date();
@@ -30,7 +31,11 @@
 		// Correct date format
 		const dateString = randomDate.toISOString().split('T')[0];
 
-		window.location.href = `/day?day=${dateString}`;
+		// use goto for internal navigation
+		await goto(`/day?day=${dateString}`);
+
+		// Make button abled again
+		loadingRandom = false;
 	}
 </script>
 

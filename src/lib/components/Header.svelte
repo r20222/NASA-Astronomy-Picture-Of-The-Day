@@ -5,12 +5,23 @@
 
 	// check if system is set to dark model
 	onMount(() => {
-		dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+		const savedTheme = localStorage.getItem('theme');
+
+		if (savedTheme) {
+			dark = savedTheme === 'dark';
+		} else {
+			dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+		}
+
+		document.documentElement.dataset.theme = dark ? 'dark' : 'light';
 	});
 
 	// Toggle data-theme on html
 	function toggleTheme() {
 		dark = !dark;
+
+		localStorage.setItem('theme', dark ? 'dark' : 'light');
+
 		document.documentElement.dataset.theme = dark ? 'dark' : 'light';
 	}
 </script>
@@ -19,7 +30,7 @@
 	<a class="homelink" title="Home" href="/">NASA APOD</a>
 
 	<button onclick={toggleTheme} title="Toggle theme light or dark.">
-		<span class:dark={dark} class="emojis">{dark ? '☀️' : '🌙'}</span>
+		<span class:dark class="emojis">{dark ? '☀️' : '🌙'}</span>
 		<span class="btn-text">Toggle theme</span>
 	</button>
 </header>
@@ -44,7 +55,7 @@
 	}
 
 	/* Progressive Enhancement, button only visible when js is active.
-	Wiithout this button, the website just listens to your 
+	Without this button, the website just listens to your 
 	system preference on light or dark mode */
 	button {
 		display: none;
@@ -60,11 +71,11 @@
 		border-radius: 1.5rem;
 		& span.emojis {
 			position: absolute;
-			display:flex;
+			display: flex;
 			justify-content: center;
 			align-items: center;
 			top: 0;
-			bottom:0;
+			bottom: 0;
 			aspect-ratio: 1;
 			background-color: var(--switch-span);
 			border-radius: 1rem;
@@ -74,18 +85,20 @@
 		& span.btn-text {
 			position: absolute;
 			white-space: nowrap;
-			top:2.3rem;
+			top: 2.3rem;
 			right: 0;
-			color:var(--text);
+			color: var(--text);
 		}
 	}
 	/* left */
-	:global(html.js[data-theme='light']) button span.emojis, :global(html.js) button span:not(.dark) {
-		transform: translateX(-.4rem);
+	:global(html.js[data-theme='light']) button span.emojis,
+	:global(html.js) button span:not(.dark) {
+		transform: translateX(-0.4rem);
 	}
 
 	/* right */
-	:global(html.js[data-theme='dark']) button span.emojis, :global(html.js) button span.dark {
+	:global(html.js[data-theme='dark']) button span.emojis,
+	:global(html.js) button span.dark {
 		transform: translateX(1.4rem);
 	}
 
