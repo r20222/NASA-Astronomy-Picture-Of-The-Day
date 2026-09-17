@@ -1,6 +1,5 @@
 <script>
 	import { onMount } from 'svelte';
-	// import { darklightmode } from '$lib/stores';
 
 	let dark = $state(false);
 
@@ -14,16 +13,12 @@
 			dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 		}
 
-		// darklightmode.set(dark);
-
 		document.documentElement.dataset.theme = dark ? 'dark' : 'light';
 	});
 
 	// Toggle data-theme on html
 	function toggleTheme() {
 		dark = !dark;
-
-		// darklightmode.set(dark);
 
 		localStorage.setItem('theme', dark ? 'dark' : 'light');
 
