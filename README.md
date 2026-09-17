@@ -15,7 +15,7 @@ I have always been fascinated by the outerspace, stars and planets. Three years 
 * [x] Display APOD images/videos
 * [x] View APOD image/video details
 * [x] Responsive design (Mobile, Tablet, Desktop)
-* [x] Dark mode support
+* [x] Dark and light mode support
 * [x] Leave comments on APOD images/videos
 * [x] Search APOD by date
 * [x] Display a random APOD image/video
