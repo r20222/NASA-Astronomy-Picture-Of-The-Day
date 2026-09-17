@@ -199,18 +199,17 @@
 		height: 100%;
 	}
 	:global(body) {
-		 display: flex;
-  flex-direction: column;
+		display: flex;
+  		flex-direction: column;
 		font-family: 'Space Grotesk', sans-serif;
 		background-color: var(--background);
 		margin: 0;
 		height: 100%;
-
 	}
 
 	:global(main) {
 		margin: 0 1rem;
-		 flex: 1 0 auto;
+		flex: 1 0 auto;
 	}
 	:global(button.btn) {
 		padding: 0.5rem 1rem;

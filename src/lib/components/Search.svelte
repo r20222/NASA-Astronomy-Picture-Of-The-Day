@@ -48,6 +48,8 @@
 		</button>
 	</form>
 
+	<!-- Vanwege de js duurt het even of het na refresh light of darkmode is
+	 misschien kunnen we hier beter ook een form met get van maken? -->
 	<button class="random" onclick={pickRandomDay} disabled={loadingRandom}>
 		{#if loadingRandom}
 			Pick a random day 🌌
