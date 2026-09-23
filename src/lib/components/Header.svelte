@@ -3,25 +3,31 @@
 
 	let dark = $state(false);
 
-	// check if system is set to dark model
 	onMount(() => {
+		// check if a theme is saved to localStorage
 		const savedTheme = localStorage.getItem('theme');
 
 		if (savedTheme) {
+			// if theme is saved to localStorage and is dark, dark = true
 			dark = savedTheme === 'dark';
 		} else {
+			// check if system is set to dark model
 			dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 		}
 
+		// sets data-theme to the html element
 		document.documentElement.dataset.theme = dark ? 'dark' : 'light';
 	});
 
-	// Toggle data-theme on html
+	
 	function toggleTheme() {
+		// Toggle dark value
 		dark = !dark;
 
+		// Change localStorage theme
 		localStorage.setItem('theme', dark ? 'dark' : 'light');
 
+		// Toggle data-theme on html element
 		document.documentElement.dataset.theme = dark ? 'dark' : 'light';
 	}
 </script>
