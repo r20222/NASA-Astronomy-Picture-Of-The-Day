@@ -15,6 +15,13 @@
 	<link rel="icon" href={favicon} />
 	<title>Nasa Astronomy Picture Of The Day</title>
 	<meta name="description" content="Discover the Astronomy Picture of the Day from NASA." />
+
+	<!-- OpenGraph image data -->
+	<meta property="og:title" content="Nasa Astronomy Picture Of The Day" />
+	<meta property="og:type" content="website" />
+	<meta property="og:image" content="https://nasa-astronomy-picture-of-the-day-two.vercel.app/openGraphImage.png" />
+	<meta property="og:url" content="https://nasa-astronomy-picture-of-the-day-two.vercel.app/" />
+	<meta property="og:description" content="Discover the Astronomy Picture of the Day from NASA." />
 </svelte:head>
 
 <Header />
@@ -200,7 +207,7 @@
 	}
 	:global(body) {
 		display: flex;
-  		flex-direction: column;
+		flex-direction: column;
 		font-family: 'Space Grotesk', sans-serif;
 		background-color: var(--background);
 		margin: 0;
