@@ -14,14 +14,17 @@
 <svelte:head>
 	<link rel="icon" href={favicon} />
 	<title>Nasa Astronomy Picture Of The Day</title>
-	<meta name="description" content="Discover the Astronomy Picture of the Day from NASA." />
+	<meta name="description" content="Discover the Astronomy Picture of the Day from NASA, together with an explanation written by a professional astonomer." />
 
 	<!-- OpenGraph image data -->
 	<meta property="og:title" content="Nasa Astronomy Picture Of The Day" />
+	<meta property="og:site_name" content="Nasa APOD" />
 	<meta property="og:type" content="website" />
 	<meta property="og:image" content="https://nasa-astronomy-picture-of-the-day-two.vercel.app/openGraphImage.png" />
 	<meta property="og:url" content="https://nasa-astronomy-picture-of-the-day-two.vercel.app/" />
-	<meta property="og:description" content="Discover the Astronomy Picture of the Day from NASA." />
+	<meta property="og:description" content="Discover the Astronomy Picture of the Day from NASA, together with an explanation written by a professional astonomer." />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
 </svelte:head>
 
 <Header />
