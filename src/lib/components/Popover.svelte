@@ -33,7 +33,7 @@
 
 					<figcaption>
 						{#if copyright}
-							<span>&#169; {copyright}</span>
+							<span>&#169; {@html copyright}</span>
 						{/if}
 						<span>⛶ Click to open popover</span>
 					</figcaption>
@@ -59,7 +59,7 @@
 				<img src={hdurl} alt="" width="300" height="300" />
 				{#if copyright}
 					<figcaption>
-						&#169; {copyright}
+						&#169; {@html copyright}
 					</figcaption>
 				{/if}
 			</figure>

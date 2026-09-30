@@ -7,10 +7,12 @@
 	import Form from '$lib/components/Form.svelte';
 
 	let { data } = $props();
+
 	let hasMessage = $derived(
 		data.dataHygraph.messages.some((message) => message.date === data.dataApod.date)
 	);
 	const today = new Date().toISOString().split('T')[0];
+
 
 	// Format date to this format: Aug 29, 2026
 	let formattedDateApodPhoto = $derived(
@@ -26,7 +28,7 @@
 	<Search value={data.dataApod.date} max={today} />
 	<Title title={data.dataApod.title} date={formattedDateApodPhoto} />
 	<Popover
-		url={data.dataApod.url}
+		url={data.dataApod.hdurl}
 		mediatype={data.dataApod.media_type}
 		hdurl={data.dataApod.hdurl}
 		copyright={data.dataApod.copyright}
