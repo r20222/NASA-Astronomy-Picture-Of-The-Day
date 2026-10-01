@@ -1,15 +1,15 @@
-import { APOD_KEY } from '$env/static/private';
+import { APOD_KEY_NEW } from '$env/static/private';
 import { createMessage } from '$lib/server/hygraph';
 
 export async function load() {
     try {
-        const apodDataUrl = APOD_KEY;
+        const apodDataUrl = APOD_KEY_NEW;
         const response = await fetch(apodDataUrl);
         if (!response.ok) {
             throw new Error(`Failed to fetch data (status ${response.status})`);
         }
         const  dataApod = await response.json();
-        return {  dataApod };
+        return { dataApod };
 
     } catch (err) {
         console.error(err);
