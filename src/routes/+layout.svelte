@@ -134,7 +134,7 @@
 
 		/* inline links */
 		--link: var(--more-vanilla);
-		--link-underline: var(--not-black);
+		--link-underline: var(--not-white);
 		--link-hover: var(--even-more-vanilla);
 		--link-underline-hover: var(--not-black-either);
 

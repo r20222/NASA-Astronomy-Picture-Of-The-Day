@@ -16,4 +16,14 @@
 	section p {
 		max-width: 40rem;
 	}
+	:global(a) {
+		color: var(--link);
+		text-decoration: underline var(--link-underline);
+
+		&:hover,
+		&:focus {
+			color: var(--link-hover);
+			text-decoration: underline var(--link-underline-hover);
+		}
+	}
 </style>
