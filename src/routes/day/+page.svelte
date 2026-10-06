@@ -28,6 +28,7 @@
 	<Search value={data.dataApod.date} max={today} />
 	<Title title={data.dataApod.title} date={formattedDateApodPhoto} />
 	<Popover
+		data={data}
 		url={data.dataApod.hdurl}
 		mediatype={data.dataApod.media_type}
 		hdurl={data.dataApod.hdurl}
