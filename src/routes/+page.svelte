@@ -7,7 +7,6 @@
 	import Form from '$lib/components/Form.svelte';
 
 	let { data } = $props();
-	console.log(data.dataApod[0])
 
 	let hasMessage = $derived(
 		data.dataHygraph.messages.some((message) => message.date === data.dataApod.date)
