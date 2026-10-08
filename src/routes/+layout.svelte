@@ -86,7 +86,9 @@
 		--popover-opened-background: var(--not-white);
 		--popover-border: var(--dark-blue);
 		--popover-figcaption-span-mobile: var(--vanilla);
+		--popover-figcaption-span-mobile-link: var(--darker-blue);
 		--popover-figcaption-span-desktop-link: var(--more-vanilla);
+		--popover-figcaption-span-mobile-link-hover: var(--dark-blue);
 		--popover-figcaption-span-desktop-link-hover: var(--even-more-vanilla);
 
 		/* inline links */
@@ -142,7 +144,9 @@
 		--popover-opened-background: var(--dark-blue);
 		--popover-border: var(--not-black);
 		--popover-figcaption-span-mobile: var(--darker-blue);
+		--popover-figcaption-span-mobile-link: var(--more-vanilla);
 		--popover-figcaption-span-desktop-link: var(--more-vanilla);
+		--popover-figcaption-span-mobile-link-hover: var(--even-more-vanilla);
 		--popover-figcaption-span-desktop-link-hover: var(--even-more-vanilla);
 
 		/* inline links */
@@ -201,7 +205,9 @@
 			--popover-opened-background: var(--dark-blue);
 			--popover-border: var(--not-black);
 			--popover-figcaption-span-mobile: var(--darker-blue);
+			--popover-figcaption-span-mobile-link: var(--more-vanilla);
 			--popover-figcaption-span-desktop-link: var(--more-vanilla);
+			--popover-figcaption-span-mobile-link-hover: var(--even-more-vanilla);
 			--popover-figcaption-span-desktop-link-hover: var(--even-more-vanilla);
 
 			/* inline links */
@@ -247,12 +253,12 @@
 		}
 
 		:global(figcaption span) & {
-			color: var(--popover-figcaption-span-desktop-link);
-			text-decoration: underline var(--popover-figcaption-span-desktop-link-hover);
+			color: var(--popover-figcaption-span-mobile-link);
+			text-decoration: underline var(--popover-figcaption-span-mobile-link-hover);
 			&:hover,
 			&:focus {
-				color: var(--popover-figcaption-span-desktop-link-hover);
-				text-decoration: underline var(--popover-figcaption-span-desktop-link-hover);
+				color: var(--popover-figcaption-span-mobile-link-hover);
+				text-decoration: underline var(--popover-figcaption-span-mobile-link-hover);
 			}
 		}
 	}
@@ -305,6 +311,17 @@
 				'explanation comments'
 				'explanation form'
 				'footer 	 footer';
+		}
+		:global(a) {
+			:global(figcaption span) & {
+				color: var(--popover-figcaption-span-desktop-link);
+				text-decoration: underline var(--popover-figcaption-span-desktop-link-hover);
+				&:hover,
+				&:focus {
+					color: var(--popover-figcaption-span-desktop-link-hover);
+					text-decoration: underline var(--popover-figcaption-span-desktop-link-hover);
+				}
+			}
 		}
 	}
 	@media screen and (min-width: 64em) {
