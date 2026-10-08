@@ -2,7 +2,7 @@
 	let { data, url, mediatype, hdurl, copyright } = $props();
 
 	// To show load button or not for vimeo and youtube video's.
-	let loadVideo = $state(false);
+	let loadedVideoUrl = $state(null);
 
 	function getVideoUrls(data) {
 		if (data.media_type !== 'video') {
@@ -53,8 +53,8 @@
 			</video>
 		{/key}
 	{:else if youtubeUrl}
-		{#if !loadVideo}
-			<button class="btn" onclick={() => (loadVideo = true)}>Click to load the Youtube Video</button
+		{#if loadedVideoUrl !== youtubeUrl}
+			<button class="btn"  onclick={() => (loadedVideoUrl = youtubeUrl)}>Click to load the Youtube Video</button
 			>
 		{:else}
 			{#key youtubeUrl}
@@ -62,8 +62,8 @@
 			{/key}
 		{/if}
 	{:else if vimeoUrl}
-		{#if !loadVideo}
-			<button class="btn" onclick={() => (loadVideo = true)}>Click to load the Vimeo Video</button>
+		{#if loadedVideoUrl !== vimeoUrl}
+			<button class="btn" onclick={() => (loadedVideoUrl = vimeoUrl)}>Click to load the Vimeo Video</button>
 		{:else}
 			{#key vimeoUrl}
 				<iframe src={vimeoUrl} title="Vimeo video" allowfullscreen> </iframe>
@@ -85,48 +85,6 @@
 	{:else}
 		<p>Today's photo/video is missing.</p>
 	{/if}
-	<!-- {#if url}
-		{#if url.includes('youtube.com') || url.includes('youtu.be')}
-			{#if !loadVideo}
-				<button class="btn" onclick={() => (loadVideo = true)}
-					>Click to load the Youtube Video</button
-				>
-			{:else}
-				<iframe width="300" height="300" src={url} title="YouTube video" allowfullscreen></iframe>
-			{/if}
-		{:else if url.includes('vimeo.com')}
-			{#if !loadVideo}
-				<button class="btn" onclick={() => (loadVideo = true)}>Click to load the Vimeo Video</button
-				>
-			{:else}
-				<iframe src={url} width="300" height="300" title="Vimeo video" allowfullscreen></iframe>
-			{/if}
-		{:else if mediatype === 'video'}
-			{#if videoUrl}
-				{#key videoUrl}
-					<video width="300" height="300" controls>
-						<source src={videoUrl} type="video/mp4" />
-						Je browser ondersteunt geen video.
-					</video>
-				{/key}
-			{/if}
-		{:else if mediatype === 'image'}
-			<button title="Open popover" class="popover-open-button" popovertarget="image-popover">
-				<figure>
-					<img src={url} alt="" width="300" height="300" />
-
-					<figcaption>
-						{#if copyright}
-							<span>&#169; {@html copyright}</span>
-						{/if}
-						<span>⛶ Click to open popover</span>
-					</figcaption>
-				</figure>
-			</button>
-		{/if}
-	{:else}
-		<p>Today's photo/video is missing.</p>
-	{/if} -->
 
 	{#if mediatype === 'image'}
 		<div class="img-popover-container" id="image-popover" popover>
