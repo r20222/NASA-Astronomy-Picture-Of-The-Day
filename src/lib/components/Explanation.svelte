@@ -4,7 +4,7 @@
 
 <section>
 	<h2>Explanation:</h2>
-	<p>{explanation}</p>
+	<p>{@html explanation}</p>
 </section>
 
 <style>

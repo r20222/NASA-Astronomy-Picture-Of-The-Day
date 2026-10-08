@@ -7,6 +7,7 @@
 	import Form from '$lib/components/Form.svelte';
 
 	let { data } = $props();
+
 	let hasMessage = $derived(
 		data.dataHygraph.messages.some((message) => message.date === data.dataApod.date)
 	);
@@ -23,16 +24,17 @@
 </script>
 
 <main>
-	<Search value={data.dataApod.date} max={data.dataApod.date} />
-	<Title title={data.dataApod.title} date={formattedDateApodPhoto} />
+	<Search value={data.dataApod[0].date} max={data.dataApod[0].date} />
+	<Title title={data.dataApod[0].title} date={formattedDateApodPhoto} />
 	<Popover
-		url={data.dataApod.url}
-		mediatype={data.dataApod.media_type}
-		hdurl={data.dataApod.hdurl}
-		copyright={data.dataApod.copyright}
+		data={data}
+		url={data.dataApod[0].hdurl}
+		mediatype={data.dataApod[0].media_type}
+		hdurl={data.dataApod[0].hdurl}
+		copyright={data.dataApod[0].copyright}
 	/>
-	<Explanation explanation={data.dataApod.explanation} />
+	<Explanation explanation={data.dataApod[0].explanation} />
 
-	<Comments messages={data.dataHygraph.messages} apodDate={data.dataApod.date} />
-	<Form apodDate={data.dataApod.date} />
+	<Comments messages={data.dataHygraph.messages} apodDate={data.dataApod[0].date} />
+	<Form apodDate={data.dataApod[0].date} />
 </main>

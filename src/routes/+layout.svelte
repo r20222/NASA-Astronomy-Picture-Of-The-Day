@@ -14,15 +14,24 @@
 <svelte:head>
 	<link rel="icon" href={favicon} />
 	<title>Nasa Astronomy Picture Of The Day</title>
-	<meta name="description" content="Discover the Astronomy Picture of the Day from NASA, together with an explanation written by a professional astonomer." />
+	<meta
+		name="description"
+		content="Discover the Astronomy Picture of the Day from NASA, together with an explanation written by a professional astonomer."
+	/>
 
 	<!-- OpenGraph image data -->
 	<meta property="og:title" content="Nasa Astronomy Picture Of The Day" />
 	<meta property="og:site_name" content="Nasa APOD" />
 	<meta property="og:type" content="website" />
-	<meta property="og:image" content="https://nasa-astronomy-picture-of-the-day-two.vercel.app/openGraphImage.png" />
+	<meta
+		property="og:image"
+		content="https://nasa-astronomy-picture-of-the-day-two.vercel.app/openGraphImage.png"
+	/>
 	<meta property="og:url" content="https://nasa-astronomy-picture-of-the-day-two.vercel.app/" />
-	<meta property="og:description" content="Discover the Astronomy Picture of the Day from NASA, together with an explanation written by a professional astonomer." />
+	<meta
+		property="og:description"
+		content="Discover the Astronomy Picture of the Day from NASA, together with an explanation written by a professional astonomer."
+	/>
 	<meta property="og:image:width" content="1200" />
 	<meta property="og:image:height" content="630" />
 </svelte:head>
@@ -77,6 +86,10 @@
 		--popover-opened-background: var(--not-white);
 		--popover-border: var(--dark-blue);
 		--popover-figcaption-span-mobile: var(--vanilla);
+		--popover-figcaption-span-mobile-link: var(--darker-blue);
+		--popover-figcaption-span-desktop-link: var(--more-vanilla);
+		--popover-figcaption-span-mobile-link-hover: var(--dark-blue);
+		--popover-figcaption-span-desktop-link-hover: var(--even-more-vanilla);
 
 		/* inline links */
 		--link: var(--dark-blue);
@@ -131,10 +144,14 @@
 		--popover-opened-background: var(--dark-blue);
 		--popover-border: var(--not-black);
 		--popover-figcaption-span-mobile: var(--darker-blue);
+		--popover-figcaption-span-mobile-link: var(--more-vanilla);
+		--popover-figcaption-span-desktop-link: var(--more-vanilla);
+		--popover-figcaption-span-mobile-link-hover: var(--even-more-vanilla);
+		--popover-figcaption-span-desktop-link-hover: var(--even-more-vanilla);
 
 		/* inline links */
 		--link: var(--more-vanilla);
-		--link-underline: var(--not-black);
+		--link-underline: var(--not-white);
 		--link-hover: var(--even-more-vanilla);
 		--link-underline-hover: var(--not-black-either);
 
@@ -188,6 +205,10 @@
 			--popover-opened-background: var(--dark-blue);
 			--popover-border: var(--not-black);
 			--popover-figcaption-span-mobile: var(--darker-blue);
+			--popover-figcaption-span-mobile-link: var(--more-vanilla);
+			--popover-figcaption-span-desktop-link: var(--more-vanilla);
+			--popover-figcaption-span-mobile-link-hover: var(--even-more-vanilla);
+			--popover-figcaption-span-desktop-link-hover: var(--even-more-vanilla);
 
 			/* inline links */
 			--link: var(--more-vanilla);
@@ -220,6 +241,26 @@
 	:global(main) {
 		margin: 0 1rem;
 		flex: 1 0 auto;
+	}
+	:global(a) {
+		color: var(--link);
+		text-decoration: underline var(--link-underline);
+
+		&:hover,
+		&:focus {
+			color: var(--link-hover);
+			text-decoration: underline var(--link-underline-hover);
+		}
+
+		:global(figcaption span) & {
+			color: var(--popover-figcaption-span-mobile-link);
+			text-decoration: underline var(--popover-figcaption-span-mobile-link-hover);
+			&:hover,
+			&:focus {
+				color: var(--popover-figcaption-span-mobile-link-hover);
+				text-decoration: underline var(--popover-figcaption-span-mobile-link-hover);
+			}
+		}
 	}
 	:global(button.btn) {
 		padding: 0.5rem 1rem;
@@ -270,6 +311,17 @@
 				'explanation comments'
 				'explanation form'
 				'footer 	 footer';
+		}
+		:global(a) {
+			:global(figcaption span) & {
+				color: var(--popover-figcaption-span-desktop-link);
+				text-decoration: underline var(--popover-figcaption-span-desktop-link-hover);
+				&:hover,
+				&:focus {
+					color: var(--popover-figcaption-span-desktop-link-hover);
+					text-decoration: underline var(--popover-figcaption-span-desktop-link-hover);
+				}
+			}
 		}
 	}
 	@media screen and (min-width: 64em) {

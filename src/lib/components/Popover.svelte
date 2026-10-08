@@ -1,45 +1,87 @@
 <script>
-	let { url, mediatype, hdurl, copyright } = $props();
+	let { data, url, mediatype, hdurl, copyright } = $props();
 
-	let loadVideo = $state(false);
+	// To show load button or not for vimeo and youtube video's.
+	let loadedVideoUrl = $state(null);
+
+	function getVideoUrls(data) {
+		if (data.media_type !== 'video') {
+			return {
+				videoUrl: null,
+				youtubeUrl: null,
+				vimeoUrl: null
+			};
+		}
+
+		const html = data.basic_html;
+
+		// Directe video (.mp4)
+		const sourceMatch = html.match(/<source\s+src="([^"]+)"/);
+		const videoUrl = sourceMatch?.[1] ?? null;
+
+		// YouTube
+		const youtubeMatch = html.match(
+			/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([^"&?/\s]+)/
+		);
+		const youtubeUrl = youtubeMatch ? `https://www.youtube.com/embed/${youtubeMatch[1]}` : null;
+
+		// Vimeo
+		const vimeoMatch = html.match(/(?:vimeo\.com\/(?:video\/)?)(\d+)/);
+		const vimeoUrl = vimeoMatch ? `https://player.vimeo.com/video/${vimeoMatch[1]}` : null;
+
+		
+		return {
+			videoUrl,
+			youtubeUrl,
+			vimeoUrl
+		};
+	}
+
+	let videoUrls = $derived(getVideoUrls(data.dataApod));
+
+	let videoUrl = $derived(videoUrls.videoUrl);
+	let youtubeUrl = $derived(videoUrls.youtubeUrl);
+	let vimeoUrl = $derived(videoUrls.vimeoUrl);
 </script>
 
 <div class="image-container">
-	{#if url}
-		{#if url.includes('youtube.com') || url.includes('youtu.be')}
-			{#if !loadVideo}
-				<button class="btn" onclick={() => (loadVideo = true)}
-					>Click to load the Youtube Video</button
-				>
-			{:else}
-				<iframe width="300" height="300" src={url} title="YouTube video" allowfullscreen></iframe>
-			{/if}
-		{:else if url.includes('vimeo.com')}
-			{#if !loadVideo}
-				<button class="btn" onclick={() => (loadVideo = true)}>Click to load the Vimeo Video</button
-				>
-			{:else}
-				<iframe src={url} width="300" height="300" title="Vimeo video" allowfullscreen></iframe>
-			{/if}
-		{:else if mediatype === 'video'}
+	{#if videoUrl}
+		{#key videoUrl}
 			<video width="300" height="300" controls>
-				<source src={url} type="video/mp4" />
+				<source src={videoUrl} type="video/mp4" />
 				Je browser ondersteunt geen video.
 			</video>
-		{:else if mediatype === 'image'}
-			<button title="Open popover" class="popover-open-button" popovertarget="image-popover">
-				<figure>
-					<img src={url} alt="" width="300" height="300" />
-
-					<figcaption>
-						{#if copyright}
-							<span>&#169; {copyright}</span>
-						{/if}
-						<span>⛶ Click to open popover</span>
-					</figcaption>
-				</figure>
-			</button>
+		{/key}
+	{:else if youtubeUrl}
+		{#if loadedVideoUrl !== youtubeUrl}
+			<button class="btn"  onclick={() => (loadedVideoUrl = youtubeUrl)}>Click to load the Youtube Video</button
+			>
+		{:else}
+			{#key youtubeUrl}
+				<iframe src={youtubeUrl} title="YouTube video" allowfullscreen> </iframe>
+			{/key}
 		{/if}
+	{:else if vimeoUrl}
+		{#if loadedVideoUrl !== vimeoUrl}
+			<button class="btn" onclick={() => (loadedVideoUrl = vimeoUrl)}>Click to load the Vimeo Video</button>
+		{:else}
+			{#key vimeoUrl}
+				<iframe src={vimeoUrl} title="Vimeo video" allowfullscreen> </iframe>
+			{/key}
+		{/if}
+	{:else if mediatype === 'image'}
+		<button title="Open popover" class="popover-open-button" popovertarget="image-popover">
+			<figure>
+				<img src={url} alt="" width="300" height="300" />
+
+				<figcaption>
+					{#if copyright}
+						<span>&#169; {@html copyright}</span>
+					{/if}
+					<span>⛶ Click to open popover</span>
+				</figcaption>
+			</figure>
+		</button>
 	{:else}
 		<p>Today's photo/video is missing.</p>
 	{/if}
@@ -59,7 +101,7 @@
 				<img src={hdurl} alt="" width="300" height="300" />
 				{#if copyright}
 					<figcaption>
-						&#169; {copyright}
+						&#169; {@html copyright}
 					</figcaption>
 				{/if}
 			</figure>
@@ -73,7 +115,7 @@
 		grid-area: popover;
 	}
 	p {
-		color:var(--text);
+		color: var(--text);
 	}
 	figure {
 		margin: 0;

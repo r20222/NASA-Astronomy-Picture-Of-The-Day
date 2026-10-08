@@ -1,5 +1,6 @@
-import { APOD_KEY } from '$env/static/private';
+import { APOD_KEY_NEW } from '$env/static/private';
 import { createMessage } from '$lib/server/hygraph';
+
 
 // Get Apod photo and data of a specific day
 export async function load({ url }) {
@@ -11,7 +12,11 @@ export async function load({ url }) {
         };
     }
 
-    const apodDataUrl = `${APOD_KEY}&date=${encodeURIComponent(day)}`;
+    // Zet YYYY-MM-DD om naar YYMMDD
+    // Bijvoorbeeld: 2014-09-18 → 140918
+    const apodId = day.replace(/-/g, '').slice(2);
+
+    const apodDataUrl = `${APOD_KEY_NEW}/${apodId}`;
 
     const response = await fetch(apodDataUrl);
 
